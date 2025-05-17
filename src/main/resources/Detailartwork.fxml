@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.shape.SVGPath?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="tn.esprit.controllers.DetailartworkController"
+            stylesheets="@styles/detailartwork.css"
+            styleClass="root, animated">
+
+    <!-- Contenu principal centré -->
+    <center>
+        <ScrollPane fitToWidth="true" fitToHeight="true" styleClass="transparent-scroll-pane">
+            <VBox alignment="TOP_CENTER" spacing="25" styleClass="artwork-main-content">
+                <!-- Image de l'œuvre avec animation -->
+                <StackPane>
+                    <ImageView fx:id="artworkImage" fitWidth="600" fitHeight="600" preserveRatio="true"
+                               styleClass="artwork-image, animated-hover"/>
+
+                    <!-- Badge édition limitée (optionnel) -->
+                    <Label fx:id="limitedEditionBadge" text="Édition Limitée" styleClass="limited-edition-badge"
+                           visible="false" managed="false" StackPane.alignment="TOP_LEFT">
+                        <StackPane.margin>
+                            <Insets top="15" left="15"/>
+                        </StackPane.margin>
+                    </Label>
+                </StackPane>
+
+                <!-- Titre et artiste -->
+                <VBox alignment="CENTER" spacing="5">
+                    <Label fx:id="titleLabel" styleClass="artwork-title"/>
+                    <Label fx:id="artistLabel" styleClass="artwork-artist"/>
+
+                    <!-- Indicateur de disponibilité -->
+                    <HBox alignment="CENTER" spacing="10">
+                        <padding>
+                            <Insets top="10"/>
+                        </padding>
+                        <Label fx:id="availabilityIndicator" text="Disponible" styleClass="availability-indicator"/>
+                    </HBox>
+                </VBox>
+                <!-- Détails techniques de l'œuvre -->
+                <VBox styleClass="artwork-details" alignment="CENTER">
+                    <HBox styleClass="artwork-detail-item">
+                        <SVGPath content="M19 5H5v14h14V5zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z" styleClass="detail-icon"/>
+                        <Label fx:id="dimensionsLabel" text="Dimensions: 60 x 80 cm" styleClass="detail-text"/>
+                    </HBox>
+
+                    <HBox styleClass="artwork-detail-item">
+                        <SVGPath content="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z" styleClass="detail-icon"/>
+                        <Label fx:id="dateLabel" text="Date: 1884" styleClass="detail-text"/>
+                    </HBox>
+
+                    <HBox styleClass="artwork-detail-item">
+                        <SVGPath content="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2zm-2 1H8v-6c0-2.48 1.51-4.5 4-4.5s4 2.02 4 4.5v6z" styleClass="detail-icon"/>
+                        <Label fx:id="techniqueLabel" text="Technique: Huile sur toile" styleClass="detail-text"/>
+                    </HBox>
+                    <Label fx:id="priceLabel" styleClass="detail-text" text="Prix: 0 €"/>
+                    <Label fx:id="descriptionLabel" styleClass="detail-text" text="Description ..." wrapText="true" maxWidth="500"/>
+                </VBox>
+
+                <!-- Boutons d'action -->
+                <HBox alignment="CENTER" spacing="20" styleClass="action-buttons">
+                    <Button fx:id="saveButton" text="Enregistrer" styleClass="action-button, animated-hover">
+                        <graphic>
+                            <SVGPath content="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2z" fill="#475569"/>
+                        </graphic>
+                    </Button>
+                    <Button fx:id="shareButton" text="Partager" styleClass="action-button, animated-hover">
+                        <graphic>
+                            <SVGPath content="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z" fill="#475569"/>
+                        </graphic>
+                    </Button>
+                </HBox>
+
+                <!-- Mini carte de localisation -->
+                <VBox fx:id="exhibitionMapContainer" styleClass="exhibition-map" alignment="CENTER" maxWidth="400">
+                    <Label text="Lieu d'exposition" styleClass="recommendation-title">
+                        <VBox.margin>
+                            <Insets bottom="10"/>
+                        </VBox.margin>
+                    </Label>
+                    <ImageView fx:id="mapImage" fitWidth="350" fitHeight="150" preserveRatio="true"/>
+                    <Label fx:id="exhibitionLocation" text="Galerie d'Art Moderne, Paris" styleClass="detail-text">
+                        <VBox.margin>
+                            <Insets top="10"/>
+                        </VBox.margin>
+                    </Label>
+                </VBox>
+
+                <!-- Section recommandations -->
+                <VBox alignment="CENTER" spacing="15">
+
+                    <HBox fx:id="recommendedItems" styleClass="recommended-items" alignment="CENTER" spacing="20"/>
+                </VBox>
+            </VBox>
+        </ScrollPane>
+    </center>
+
+    <!-- Bloc d'achat à droite -->
+    <right>
+        <VBox alignment="TOP_CENTER" spacing="25" styleClass="purchase-panel">
+            <!-- Titre du panneau -->
+            <Label text="Détails d'achat" styleClass="purchase-panel-title"/>
+
+            <!-- Badge promotion (optionnel) -->
+            <Label fx:id="promoBadge" text="Promotion -15%" styleClass="promo-badge" visible="false"/>
+
+            <!-- Prix -->
+            <VBox alignment="CENTER" spacing="5">
+                <Label text="Prix" styleClass="price-label"/>
+                <Label fx:id="artworkPrice" styleClass="price-value"/>
+                <Label fx:id="originalPrice" text="Prix original: 1200 DT"
+                       visible="false" managed="false" styleClass="detail-text"
+                       style="-fx-strikethrough: true;"/>
+            </VBox>
+
+            <!-- Quantité -->
+            <VBox alignment="CENTER" spacing="8">
+                <Label text="Quantité" styleClass="quantity-label"/>
+                <Spinner fx:id="quantitySpinner" styleClass="quantity-spinner" prefWidth="200"/>
+            </VBox>
+
+            <!-- Bouton d'ajout au panier -->
+            <Button fx:id="addToCartButton" text="Ajouter au panier" styleClass="add-cart-button, animated-hover"/>
+
+            <Separator styleClass="separator"/>
+
+            <!-- Informations de livraison -->
+            <VBox alignment="CENTER_LEFT" spacing="10">
+                <Label text="Informations de livraison" styleClass="price-label"/>
+                <HBox styleClass="artwork-detail-item">
+                    <SVGPath content="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z" styleClass="detail-icon"/>
+                    <Label text="Livraison en 3-5 jours" styleClass="detail-text"/>
+                </HBox>
+                <HBox styleClass="artwork-detail-item">
+                    <SVGPath content="M21 18v1c0 1.1-.9 2-2 2H5c-1.11 0-2-.9-2-2V5c0-1.1.89-2 2-2h14c1.1 0 2 .9 2 2v1h-9c-1.11 0-2 .9-2 2v8c0 1.1.89 2 2 2h9zm-9-2h10V8H12v8zm4-2.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z" styleClass="detail-icon"/>
+                    <Label text="Paiement sécurisé" styleClass="detail-text"/>
+                </HBox>
+                <HBox styleClass="artwork-detail-item">
+                    <SVGPath content="M19 8l-4 4h3c0 3.31-2.69 6-6 6-1.01 0-1.97-.25-2.8-.7l-1.46 1.46C8.97 19.54 10.43 20 12 20c4.42 0 8-3.58 8-8h3l-4-4zM6 12c0-3.31 2.69-6 6-6 1.01 0 1.97.25 2.8.7l1.46-1.46C15.03 4.46 13.57 4 12 4c-4.42 0-8 3.58-8 8H1l4 4 4-4H6z" styleClass="detail-icon"/>
+                    <Label text="Retours gratuits sous 30 jours" styleClass="detail-text"/>
+                </HBox>
+            </VBox>
+
+            <!-- Certificat d'authenticité -->
+            <HBox alignment="CENTER_LEFT" spacing="10" styleClass="artwork-detail-item">
+                <SVGPath content="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z" styleClass="detail-icon" fill="#10b981"/>
+                <Label text="Certificat d'authenticité inclus" styleClass="detail-text" style="-fx-font-weight: bold;"/>
+            </HBox>
+        </VBox>
+    </right>
+
+    <!-- Barre du haut avec boutons -->
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="20" styleClass="top-bar">
+            <Button fx:id="backButton" text="←" styleClass="back-button, animated"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <HBox alignment="CENTER_RIGHT" spacing="12">
+                <Label fx:id="likesCount" styleClass="likes-count"/>
+                <Button fx:id="likeButton" styleClass="like-button, animated"/>
+            </HBox>
+        </HBox>
+    </top>
+</BorderPane>

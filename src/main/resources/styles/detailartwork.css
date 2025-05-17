@@ -1,0 +1,496 @@
+/* Styles modernes améliorés pour l'interface d'œuvres d'art */
+.root {
+    -fx-font-family: 'Montserrat', 'Poppins', 'Segoe UI', Arial, sans-serif;
+    -fx-background-color: #ffffff;
+}
+
+/* Variables de couleurs pour une palette cohérente */
+* {
+    -color-primary: #3d5afe;
+    -color-primary-dark: #0031ca;
+    -color-primary-light: #8187ff;
+    -color-accent: #ff6e40;
+    -color-accent-dark: #c53d13;
+    -color-background: #ffffff;
+    -color-surface: #fcfcfc;
+    -color-text-primary: #1e293b;
+    -color-text-secondary: #475569;
+    -color-text-tertiary: #64748b;
+    -color-border: #e2e8f0;
+    -color-success: #10b981;
+    -color-like: #ff4757;
+}
+
+/* Animation de transition globale */
+.animated, .button, .label, .spinner, .image-view {
+    -fx-transition-duration: 0.3s;
+    -fx-transition-timing-function: ease;
+}
+
+/* Barre du haut avec design moderne */
+.top-bar {
+    -fx-padding: 20 30;
+    -fx-background-color: -color-background;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.06), 12, 0, 0, 4);
+    -fx-border-width: 0;
+}
+
+.back-button {
+    -fx-background-color: #f8f9fa;
+    -fx-background-radius: 50%;
+    -fx-min-width: 44px;
+    -fx-min-height: 44px;
+    -fx-font-size: 18px;
+    -fx-text-fill: -color-text-primary;
+    -fx-cursor: hand;
+    -fx-alignment: center;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 4, 0, 0, 1);
+}
+
+.back-button:hover {
+    -fx-background-color: #f1f5f9;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.12), 8, 0, 0, 2);
+    -fx-translate-y: -2px;
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+.back-button:pressed {
+    -fx-background-color: #e2e8f0;
+    -fx-translate-y: 0px;
+    -fx-scale-x: 0.95;
+    -fx-scale-y: 0.95;
+}
+
+.likes-count {
+    -fx-font-size: 16px;
+    -fx-text-fill: -color-text-tertiary;
+    -fx-font-weight: bold;
+}
+
+.like-button {
+    -fx-background-color: white;
+    -fx-background-radius: 50%;
+    -fx-min-width: 46px;
+    -fx-min-height: 46px;
+    -fx-text-fill: -color-like;
+    -fx-font-size: 18px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 4, 0, 0, 1);
+    -fx-alignment: center;
+}
+
+.like-button:hover {
+    -fx-background-color: #fff1f2;
+    -fx-effect: dropshadow(gaussian, rgba(255,71,87,0.15), 8, 0, 0, 2);
+    -fx-translate-y: -2px;
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+.like-button:pressed {
+    -fx-background-color: #ffe4e6;
+    -fx-translate-y: 0px;
+    -fx-scale-x: 0.95;
+    -fx-scale-y: 0.95;
+}
+
+.quick-save-button {
+    -fx-background-color: linear-gradient(to right, #f8fafc, #f1f5f9);
+    -fx-text-fill: -color-text-secondary;
+    -fx-padding: 10 20;
+    -fx-background-radius: 24;
+    -fx-border-radius: 24;
+    -fx-border-width: 1;
+    -fx-border-color: #e2e8f0;
+    -fx-cursor: hand;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.04), 4, 0, 0, 1);
+}
+
+.quick-save-button:hover {
+    -fx-background-color: linear-gradient(to right, #f1f5f9, #e2e8f0);
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.09), 6, 0, 0, 2);
+    -fx-translate-y: -1px;
+}
+
+.quick-save-button:pressed {
+    -fx-background-color: #e2e8f0;
+    -fx-translate-y: 1px;
+}
+
+/* Contenu principal avec design élégant */
+.artwork-main-content {
+    -fx-padding: 50 60;
+    -fx-alignment: top-center;
+    -fx-background-color: linear-gradient(to bottom, #ffffff, #fafafa);
+}
+
+.artwork-image {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 25, 0, 0, 5);
+    -fx-border-radius: 12;
+    -fx-background-radius: 12;
+    -fx-border-color: white;
+    -fx-border-width: 8;
+}
+
+.artwork-image:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 30, 0, 0, 8);
+    -fx-scale-x: 1.01;
+    -fx-scale-y: 1.01;
+}
+
+.artwork-title {
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -color-text-primary;
+    -fx-padding: 24 0 8 0;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 1, 0, 0, 1);
+}
+
+.artwork-artist {
+    -fx-font-size: 18px;
+    -fx-text-fill: -color-text-secondary;
+    -fx-padding: 0 0 16 0;
+    -fx-font-style: italic;
+}
+
+.artwork-description {
+    -fx-font-size: 16px;
+    -fx-text-fill: -color-text-tertiary;
+    -fx-line-spacing: 1.7em;
+    -fx-text-alignment: center;
+    -fx-padding: 16 40;
+    -fx-wrap-text: true;
+    -fx-max-width: 800px;
+}
+
+.action-buttons {
+    -fx-padding: 30 0;
+    -fx-spacing: 24;
+}
+
+.action-button {
+    -fx-background-color: white;
+    -fx-text-fill: -color-text-secondary;
+    -fx-padding: 12 30;
+    -fx-background-radius: 10;
+    -fx-cursor: hand;
+    -fx-border-radius: 10;
+    -fx-border-width: 1;
+    -fx-border-color: #e2e8f0;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.06), 5, 0, 0, 1);
+}
+
+.action-button:hover {
+    -fx-background-color: #f8fafc;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.12), 10, 0, 0, 3);
+    -fx-translate-y: -2px;
+}
+
+.action-button:pressed {
+    -fx-background-color: #f1f5f9;
+    -fx-translate-y: 0px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 2, 0, 0, 1);
+}
+
+/* Style spécifique pour bouton Save */
+#saveButton {
+    -fx-graphic-text-gap: 8;
+    -fx-content-display: left;
+}
+
+/* Style spécifique pour bouton Share */
+#shareButton {
+    -fx-graphic-text-gap: 8;
+    -fx-content-display: left;
+}
+
+/* Panneau d'achat avec design moderne */
+.purchase-panel {
+    -fx-padding: 50 40;
+    -fx-background-color: #fbfbfd;
+    -fx-border-width: 0 0 0 1;
+    -fx-border-color: #f0f0f5;
+    -fx-min-width: 350px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.03), 12, 0, 0, -8);
+}
+
+.purchase-panel-title {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -color-text-primary;
+    -fx-padding: 0 0 20 0;
+}
+
+.price-label {
+    -fx-font-size: 16px;
+    -fx-text-fill: -color-text-secondary;
+    -fx-font-weight: bold;
+}
+
+.price-value {
+    -fx-font-size: 36px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -color-success;
+    -fx-padding: 8 0 20 0;
+}
+
+.quantity-label {
+    -fx-font-size: 16px;
+    -fx-text-fill: -color-text-secondary;
+    -fx-font-weight: bold;
+    -fx-padding: 12 0 8 0;
+}
+
+.quantity-spinner {
+    -fx-background-color: white;
+    -fx-border-color: #e2e8f0;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-padding: 5;
+    -fx-min-height: 45px;
+    -fx-font-size: 15px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.04), 4, 0, 0, 1);
+}
+
+.quantity-spinner .increment-arrow-button,
+.quantity-spinner .decrement-arrow-button {
+    -fx-background-color: #f1f5f9;
+    -fx-background-radius: 5;
+    -fx-padding: 5;
+}
+
+.quantity-spinner .increment-arrow-button:hover,
+.quantity-spinner .decrement-arrow-button:hover {
+    -fx-background-color: #e2e8f0;
+}
+
+.quantity-spinner .increment-arrow,
+.quantity-spinner .decrement-arrow {
+    -fx-background-color: -color-text-secondary;
+}
+
+.add-cart-button {
+    -fx-background-color: linear-gradient(to right, -color-primary, -color-primary-dark);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 16 32;
+    -fx-background-radius: 12;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(61,90,254,0.3), 12, 0, 0, 4);
+    -fx-min-width: 260px;
+    -fx-font-size: 15px;
+    -fx-margin: 25 0 0 0;
+}
+
+.add-cart-button:hover {
+    -fx-background-color: linear-gradient(to right, -color-primary-dark, -color-primary-dark);
+    -fx-effect: dropshadow(gaussian, rgba(61,90,254,0.5), 18, 0, 0, 6);
+    -fx-translate-y: -3px;
+}
+
+.add-cart-button:pressed {
+    -fx-background-color: linear-gradient(to right, -color-primary-dark, -color-primary-dark);
+    -fx-translate-y: -1px;
+    -fx-effect: dropshadow(gaussian, rgba(61,90,254,0.4), 8, 0, 0, 2);
+}
+
+/* Badge promotion */
+.promo-badge {
+    -fx-background-color: #fff0f0;
+    -fx-text-fill: #e63946;
+    -fx-padding: 5 12;
+    -fx-background-radius: 12;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+    -fx-border-color: #ffccd5;
+}
+
+.separator {
+    -fx-padding: 25 0;
+    -fx-opacity: 0.4;
+}
+
+.recommendation-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -color-text-primary;
+    -fx-padding: 10 0 20 0;
+}
+
+/* Recommandations d'œuvres d'art */
+.recommended-items {
+    -fx-spacing: 20;
+    -fx-alignment: center;
+}
+
+.recommended-item {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 8, 0, 0, 2);
+    -fx-border-radius: 10;
+    -fx-border-width: 1;
+    -fx-border-color: #f1f5f9;
+    -fx-cursor: hand;
+    -fx-padding: 8;
+}
+
+.recommended-item:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 14, 0, 0, 5);
+    -fx-translate-y: -4px;
+    -fx-border-color: #e2e8f0;
+}
+
+/* Détails de l'œuvre */
+.artwork-details {
+    -fx-padding: 15 0;
+    -fx-spacing: 12;
+}
+
+.artwork-detail-item {
+    -fx-spacing: 8;
+    -fx-alignment: center-left;
+}
+
+.detail-icon {
+    -fx-fill: -color-text-tertiary;
+}
+
+.detail-text {
+    -fx-font-size: 14px;
+    -fx-text-fill: -color-text-secondary;
+}
+
+/* Style pour alertes et dialogues */
+.alert {
+    -fx-background-color: white;
+    -fx-border-color: #e2e8f0;
+    -fx-border-radius: 12;
+    -fx-background-radius: 12;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 20, 0, 0, 10);
+}
+
+.alert .header-panel {
+    -fx-background-color: transparent;
+    -fx-padding: 20 20 10 20;
+}
+
+.alert .header-panel .label {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -color-text-primary;
+}
+
+.alert .content {
+    -fx-padding: 10 20 20 20;
+}
+
+.alert .content .label {
+    -fx-font-size: 14px;
+    -fx-text-fill: -color-text-secondary;
+    -fx-wrap-text: true;
+}
+
+.alert .button-bar .button {
+    -fx-background-color: -color-primary;
+    -fx-text-fill: white;
+    -fx-background-radius: 8;
+    -fx-padding: 10 20;
+    -fx-cursor: hand;
+}
+
+.alert .button-bar .button:hover {
+    -fx-background-color: -color-primary-dark;
+}
+
+/* Animation supplémentaire sur les boutons au survol */
+.animated-hover {
+    -fx-transition-duration: 0.3s;
+}
+
+.animated-hover:hover {
+    -fx-scale-x: 1.03;
+    -fx-scale-y: 1.03;
+}
+
+/* Badge pour édition limitée */
+.limited-edition-badge {
+    -fx-background-color: #fffaeb;
+    -fx-text-fill: #d97706;
+    -fx-padding: 5 12;
+    -fx-background-radius: 12;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+    -fx-border-color: #fef3c7;
+}
+
+/* Style pour indicateur de disponibilité */
+.availability-indicator {
+    -fx-background-color: #ecfdf5;
+    -fx-padding: 6 12;
+    -fx-background-radius: 4;
+    -fx-text-fill: #10b981;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+}
+
+.unavailable-indicator {
+    -fx-background-color: #fef2f2;
+    -fx-text-fill: #ef4444;
+}
+
+/* Mini carte du lieu d'exposition */
+.exhibition-map {
+    -fx-background-color: #f8fafc;
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+    -fx-border-color: #e2e8f0;
+    -fx-padding: 12;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 5, 0, 0, 2);
+}
+
+.exhibition-map:hover {
+    -fx-background-color: #f1f5f9;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 8, 0, 0, 3);
+}
+
+/* Style pour le mode nuit (à activer via une classe .dark-mode sur .root) */
+.dark-mode {
+    -color-text-primary: #f1f5f9;
+    -color-text-secondary: #cbd5e1;
+    -color-text-tertiary: #94a3b8;
+    -color-background: #0f172a;
+    -color-surface: #1e293b;
+    -color-border: #334155;
+}
+
+.dark-mode .top-bar,
+.dark-mode .artwork-main-content,
+.dark-mode .purchase-panel {
+    -fx-background-color: -color-surface;
+}
+
+.dark-mode .back-button,
+.dark-mode .like-button {
+    -fx-background-color: #334155;
+    -fx-text-fill: #f1f5f9;
+}
+
+.dark-mode .artwork-title,
+.dark-mode .recommendation-title {
+    -fx-text-fill: #f1f5f9;
+}
+
+.dark-mode .artwork-artist,
+.dark-mode .artwork-description {
+    -fx-text-fill: #cbd5e1;
+}

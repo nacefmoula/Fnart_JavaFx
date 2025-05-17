@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableView?>
+
+<VBox spacing="10" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="tn.esprit.controllers.InscriptionAtelierController" style="-fx-background-color: #F8F8F8; -fx-padding: 20; -fx-border-radius: 10; -fx-background-radius: 10;" stylesheets="/styles.css">
+
+    <Label fx:id="atelierLabel" style="-fx-font-size: 18; -fx-font-family: 'Segoe UI'; -fx-text-fill: #6A5ACD; -fx-font-weight: bold;" />
+
+    <Label text="Formulaire d'inscription" style="-fx-font-size: 18; -fx-font-family: 'Segoe UI'; -fx-text-fill: #333333; -fx-font-weight: bold;" />
+
+    <GridPane hgap="10" vgap="10">
+        <columnConstraints>
+            <ColumnConstraints hgrow="NEVER" minWidth="120.0" />
+            <ColumnConstraints hgrow="ALWAYS" />
+        </columnConstraints>
+
+        <Label text="Nom complet:" GridPane.columnIndex="0" GridPane.rowIndex="0" style="-fx-font-family: 'Segoe UI'; -fx-text-fill: #333333;" />
+        <TextField fx:id="nomField" GridPane.columnIndex="1" GridPane.rowIndex="0" style="-fx-background-radius: 10; -fx-border-radius: 10;" />
+
+        <Label text="Email:" GridPane.columnIndex="0" GridPane.rowIndex="1" style="-fx-font-family: 'Segoe UI'; -fx-text-fill: #333333;" />
+        <TextField fx:id="emailField" GridPane.columnIndex="1" GridPane.rowIndex="1" style="-fx-background-radius: 10; -fx-border-radius: 10;" />
+    </GridPane>
+
+    <HBox spacing="10" alignment="BOTTOM_RIGHT">
+        <Button text="Annuler" onAction="#annulerInscription" cancelButton="true" style="-fx-background-color: #FFB6C1; -fx-text-fill: white; -fx-background-radius: 10; -fx-border-radius: 10;" />
+        <Button text="Valider l'inscription" onAction="#validerInscription" defaultButton="true" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-background-radius: 10; -fx-border-radius: 10;" />
+    </HBox>
+
+    <!-- TableView for inscriptions -->
+    <TableView fx:id="inscriptionTable" prefHeight="400" prefWidth="600" />
+
+    <!-- Buttons for accepting and refusing inscriptions -->
+    <HBox spacing="10" alignment="CENTER">
+        <Button text="Accepter" onAction="#acceptInscription" />
+        <Button text="Refuser" onAction="#refuseInscription" />
+    </HBox>
+</VBox>

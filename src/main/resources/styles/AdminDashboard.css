@@ -1,0 +1,607 @@
+/* admin-dashboard.css */
+
+* {
+    -fx-font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+/* Color palette from signup page */
+.root {
+    -primary-dark: #310E10;  /* Dark brown used in signup */
+    -primary: #947268;       /* Medium brown from painting background */
+    -primary-light: #A98B6A; /* Lighter brown */
+    -accent: #FFCC00;        /* Gold accent from hyperlink */
+    -bg-light: #F9F5F0;      /* Off-white background */
+    -text-dark: #2C3E50;     /* Dark text color */
+    -text-light: #FFFFFF;    /* White text */
+    -error: #E74C3C;         /* Error color */
+    -success: #2ECC71;       /* Success color */
+    -info: #3498DB;          /* Info color */
+    -warning: #F39C12;       /* Warning color */
+    -fx-font-family: 'Segoe UI', Arial, sans-serif;
+    -fx-background-color: #f5f5f5;
+}
+
+/* Main container styling */
+.border-pane {
+    -fx-background-color: -bg-light;
+}
+
+/* Tab styling */
+.tab-pane {
+    -fx-tab-min-width: 120px;
+    -fx-background-color: transparent;
+}
+
+.tab-pane .tab-header-area .tab-header-background {
+    -fx-background-color: -primary-light, derive(-primary-light, 50%);
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-background-radius: 0;
+}
+
+.tab-pane .tab {
+    -fx-background-color: derive(-primary-light, 80%);
+    -fx-background-radius: 8 8 0 0;
+    -fx-padding: 8 15;
+}
+
+.tab-pane .tab:selected {
+    -fx-background-color: -primary;
+    -fx-background-insets: 0, 1 1 0 1;
+}
+
+.tab-pane .tab .tab-label {
+    -fx-text-fill: -text-dark;
+    -fx-font-size: 14px;
+    -fx-font-weight: normal;
+}
+
+.tab-pane .tab:selected .tab-label {
+    -fx-text-fill: -text-light;
+    -fx-font-weight: bold;
+}
+
+.tab-pane .tab-content-area {
+    -fx-background-color: -text-light;
+    -fx-background-radius: 0 0 8 8;
+    -fx-border-radius: 0 0 8 8;
+    -fx-border-color: derive(-primary-light, 50%);
+    -fx-border-width: 1;
+}
+
+/* Button styling - supprimé pour laisser forum-style.css gérer les boutons */
+/* Si tu veux un style par défaut, utilise .button.default uniquement */
+.button.default {
+    -fx-background-color: -primary-dark;
+    -fx-text-fill: -text-light;
+    -fx-background-radius: 20;
+    -fx-cursor: hand;
+    -fx-padding: 8 15;
+    -fx-font-size: 13px;
+    -fx-effect: dropshadow(three-pass-box, #00000019, 3, 0, 0, 1);
+}
+
+.button.default:hover {
+    -fx-background-color: derive(-primary-dark, 15%);
+}
+
+.button.default:pressed {
+    -fx-background-color: derive(-primary-dark, -10%);
+}
+
+/* Table View styling */
+.table-view {
+    -fx-background-color: transparent;
+    -fx-border-color: derive(-primary-light, 50%);
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 0;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: -primary;
+    -fx-background-radius: 8 8 0 0;
+    -fx-padding: 0 0 5 0;
+}
+
+.table-view .column-header, .table-view .filler {
+    -fx-background-color: transparent;
+    -fx-size: 40px;
+    -fx-border-width: 0 0 0 0;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: -text-light;
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 10 5;
+}
+
+.table-view .table-row-cell {
+    -fx-background-color: transparent;
+    -fx-border-color: derive(-primary-light, 70%);
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 5 0;
+}
+
+.table-view .table-row-cell:odd {
+    -fx-background-color: derive(-bg-light, 2%);
+}
+
+.table-view .table-row-cell:selected {
+    -fx-background-color: derive(-primary, 80%);
+    -fx-text-background-color: -text-dark;
+}
+
+.table-view .table-cell {
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 10 15;
+    -fx-text-fill: -text-dark;
+}
+
+/* List View styling */
+.list-view {
+    -fx-background-color: transparent;
+    -fx-border-color: derive(-primary-light, 50%);
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 5;
+}
+
+.list-view .list-cell {
+    -fx-background-color: transparent;
+    -fx-padding: 8 10;
+    -fx-border-color: derive(-primary-light, 80%);
+    -fx-border-width: 0 0 1 0;
+}
+
+.list-view .list-cell:empty {
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+}
+
+.list-view .list-cell:filled:selected:focused, .list-view .list-cell:filled:selected {
+    -fx-background-color: derive(-primary, 80%);
+    -fx-text-fill: -text-dark;
+}
+
+/* Search field styling */
+.text-field {
+    -fx-background-color: -text-light;
+    -fx-border-color: derive(-primary-light, 50%);
+    -fx-border-radius: 20;
+    -fx-background-radius: 20;
+    -fx-padding: 8 15;
+    -fx-font-size: 14px;
+    -fx-prompt-text-fill: derive(-text-dark, 30%);
+}
+
+.text-field:focused {
+    -fx-border-color: -primary;
+    -fx-border-width: 1.5;
+    -fx-effect: dropshadow(three-pass-box, derive(-primary-light, 30%), 3, 0, 0, 0);
+}
+
+
+
+/* Profile panel styling */
+.profile-panel {
+    -fx-background-color: white;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 5);
+    -fx-background-radius: 10;
+    -fx-padding: 20;
+    -fx-alignment: center;
+    -fx-spacing: 10;
+    -fx-min-width: 200;
+}
+
+.profile-panel-content {
+    -fx-spacing: 15;
+    -fx-alignment: center;
+    -fx-padding: 10;
+}
+
+.profile-image {
+    -fx-background-radius: 50%;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 0);
+}
+
+.profile-image:hover {
+    -fx-border-color: derive(-accent, -20%);
+    -fx-effect: dropshadow(three-pass-box, #00000080, 8, 0, 0, 0);
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+.profile-image-large {
+    -fx-background-radius: 50%;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 0);
+}
+
+
+
+.profile-name {
+    -fx-font-weight: bold;
+    -fx-font-size: 16;
+}
+
+.profile-email {
+    -fx-text-fill: #555;
+    -fx-font-size: 12;
+}
+
+.sign-out-button {
+    -fx-background-color: #f0f0f0;
+    -fx-text-fill: #333;
+}
+.sign-out-button:hover {
+    -fx-background-color: derive(-error, 15%);
+}
+
+/* Profile container in the header */
+.profile-container {
+    -fx-padding: 5;
+    -fx-background-color: transparent;
+    -fx-cursor: hand;
+}
+
+.profile-container:hover .profile-image {
+    -fx-effect: dropshadow(three-pass-box, #FFFFFF66, 8, 0, 0, 0);
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+}
+
+.profile-container:hover {
+    -fx-cursor: hand;
+}
+
+/* Chart styling */
+.chart {
+    -fx-padding: 10;
+    -fx-background-color: transparent;
+}
+
+.chart-title {
+    -fx-text-fill: -text-dark;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.chart-pie-label-line {
+    -fx-stroke: -text-dark;
+    -fx-fill: -text-dark;
+}
+
+.chart-pie-label {
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-fill: -text-dark;
+}
+
+.chart-legend {
+    -fx-background-color: transparent;
+    -fx-padding: 10;
+}
+
+/* Labels */
+.label {
+    -fx-text-fill: -text-dark;
+}
+
+.label.title {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
+.label.subtitle {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+/* VBox and HBox containers */
+.container {
+    -fx-background-color: -text-light;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-border-color: derive(-primary-light, 50%);
+    -fx-border-width: 1;
+    -fx-padding: 15;
+    -fx-effect: dropshadow(three-pass-box, #00000019, 5, 0, 0, 2);
+}
+
+/* User statistics panel */
+.statistics-container {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 5, 0, 0, 0);
+}
+
+
+/* Specific button styles */
+#approveButton {
+    -fx-background-color: -success;
+}
+
+#approveButton:hover {
+    -fx-background-color: derive(-success, 15%);
+}
+
+#rejectButton, #deleteButton {
+    -fx-background-color: -error;
+}
+
+#rejectButton:hover, #deleteButton:hover {
+    -fx-background-color: derive(-error, 15%);
+}
+
+#updateButton {
+    -fx-background-color: -info;
+}
+
+#updateButton:hover {
+    -fx-background-color: derive(-info, 15%);
+}
+
+#refreshButton {
+    -fx-background-color: -warning;
+}
+
+#refreshButton:hover {
+    -fx-background-color: derive(-warning, 15%);
+}
+
+/* Dialog styling */
+.dialog-pane {
+    -fx-background-color: -bg-light;
+}
+
+.dialog-pane .header-panel {
+    -fx-background-color: -primary;
+}
+
+.dialog-pane .header-panel .label {
+    -fx-text-fill: -text-light;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.dialog-pane .content {
+    -fx-padding: 15;
+}
+
+.dialog-pane .button-bar .button {
+    -fx-background-color: -primary-dark;
+    -fx-text-fill: -text-light;
+    -fx-background-radius: 20;
+}
+
+/* Animation effects */
+.animated-button {
+    -fx-transition: -fx-background-color 0.3s ease;
+}
+
+
+/* Enhanced styling for statistics and chart containers */
+.statistics-container {
+    -fx-background-color: -text-light;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-border-color: derive(-primary-light, 50%);
+    -fx-border-width: 1;
+    -fx-padding: 15;
+    -fx-effect: dropshadow(three-pass-box, #00000019, 3, 0, 0, 1);
+}
+
+.chart-container {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 5, 0, 0, 0);
+}
+.subtitle {
+    -fx-font-weight: bold;
+    -fx-font-size: 16;
+}
+
+.stat-row {
+    -fx-padding: 5;
+}
+
+.stat-label {
+    -fx-text-fill: #555;
+}
+
+.stat-value {
+    -fx-font-weight: bold;
+    -fx-font-size: 14;
+}
+
+
+/* Button Styles */
+.button {
+    -fx-background-color: #1877f2;
+    -fx-text-fill: white;
+    -fx-background-radius: 5;
+    -fx-padding: 5 10;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-background-color: #166fe5;
+}
+
+.button:pressed {
+    -fx-background-color: #125fca;
+}
+
+.delete-button {
+    -fx-background-color: #ff4d4f;
+    -fx-text-fill: white;
+}
+
+.delete-button:hover {
+    -fx-background-color: #ff7875;
+}
+
+
+/* ListView Styles */
+.list-view {
+    -fx-background-color: white;
+    -fx-background-radius: 5;
+    -fx-border-color: #e1e1e1;
+    -fx-border-radius: 5;
+}
+
+.list-cell {
+    -fx-padding: 8 5;
+    -fx-background-color: transparent;
+}
+
+.list-cell:filled:selected {
+    -fx-background-color: #e7f3ff;
+    -fx-text-fill: #1877f2;
+}
+
+.list-cell:filled:hover {
+    -fx-background-color: #f5f5f5;
+}
+
+/* Add styles for activity log
+.list-view .list-cell:empty {
+    -fx-opacity: 0;
+}
+
+.list-view .list-cell {
+    -fx-padding: 8 15;
+    -fx-background-color: transparent;
+    -fx-border-color: derive(-primary-light, 80%);
+    -fx-border-width: 0 0 1 0;
+}
+
+.list-view .list-cell:filled:selected, .list-view .list-cell:filled:selected:hover {
+    -fx-background-color: derive(-primary, 80%);
+    -fx-text-fill: -text-dark;
+}
+
+.list-view .list-cell:filled:hover {
+    -fx-background-color: derive(-bg-light, -5%);
+}
+*/
+/* Animation for the activity log entries */
+@keyframes fadeIn {
+    from { -fx-opacity: 0; }
+    to { -fx-opacity: 1; }
+}
+
+.new-activity-entry {
+    -fx-opacity: 0;
+    animation: fadeIn 0.5s ease-in forwards;
+}
+
+/* Workshop Grid and Card Styling */
+.workshop-scroll-pane {
+    -fx-background-color: transparent;
+    -fx-padding: 10;
+}
+
+.workshop-scroll-pane > .viewport {
+    -fx-background-color: transparent;
+}
+
+.workshop-card {
+    -fx-background-color: -text-light;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-border-color: derive(-primary-light, 50%);
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 8, 0, 0, 2);
+    -fx-padding: 15;
+    -fx-max-width: 300px;
+    -fx-min-height: 200px;
+}
+
+.workshop-card:hover {
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 3);
+    -fx-border-color: -primary;
+    -fx-scale-x: 1.02;
+    -fx-scale-y: 1.02;
+}
+
+.workshop-card-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -primary-dark;
+    -fx-wrap-text: true;
+}
+
+.workshop-card-date {
+    -fx-font-size: 14px;
+    -fx-text-fill: -text-dark;
+    -fx-opacity: 0.8;
+}
+
+.workshop-card-description {
+    -fx-font-size: 13px;
+    -fx-text-fill: -text-dark;
+    -fx-wrap-text: true;
+    -fx-line-spacing: 3px;
+}
+
+.workshop-card-capacity {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.workshop-card-status {
+    -fx-padding: 5 10;
+    -fx-background-radius: 10;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -text-light;
+}
+
+.workshop-card-status-active {
+    -fx-background-color: -success;
+}
+
+.workshop-card-status-upcoming {
+    -fx-background-color: -info;
+}
+
+.workshop-card-status-full {
+    -fx-background-color: -warning;
+}
+
+.workshop-card-status-completed {
+    -fx-background-color: -primary-dark;
+}
+
+.workshop-card-price {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -primary;
+}
+
+.workshop-card-buttons {
+    -fx-spacing: 10;
+}
+
+.workshop-card-button {
+    -fx-background-color: -primary;
+    -fx-text-fill: -text-light;
+    -fx-background-radius: 15;
+    -fx-padding: 5 15;
+    -fx-font-size: 12px;
+    -fx-cursor: hand;
+}
+
+.workshop-card-button:hover {
+    -fx-background-color: derive(-primary, -10%);
+}
+
+.section-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -primary-dark;
+    -fx-padding: 5 0;
+    -fx-border-color: transparent transparent derive(-primary-light, 50%) transparent;
+    -fx-border-width: 0 0 1 0;
+}

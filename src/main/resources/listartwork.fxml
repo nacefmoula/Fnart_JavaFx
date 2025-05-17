@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+
+<AnchorPane fx:id="tableview" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.listartwork" stylesheets="@styles/forum-style.css"> <!-- 💡 Ton package doit être complet ici -->
+    <children>
+        <HBox layoutX="10.0" layoutY="10.0" spacing="10.0">
+            <TextField fx:id="searchField" promptText="Rechercher..." prefWidth="200.0" />
+            <ComboBox fx:id="triComboBox" promptText="Trier par..." prefWidth="150.0" />
+            <TextField fx:id="minPrixField" promptText="Prix min" prefWidth="100.0" />
+            <TextField fx:id="maxPrixField" promptText="Prix max" prefWidth="100.0" />
+            <Button fx:id="btnFilter" text="Filtrer" onAction="#filterByPrice" />
+            <Button fx:id="btnExportPDF" text="Exporter PDF" onAction="#exportToPDF" />
+        </HBox>
+        
+        <TilePane fx:id="artworkGrid" layoutX="10.0" layoutY="50.0" prefHeight="308.0" prefWidth="860.0" hgap="20" vgap="20" prefColumns="4" styleClass="masonry-grid">
+            <!-- Les cartes d'œuvres seront ajoutées dynamiquement par le contrôleur -->
+        </TilePane>
+        
+        <PieChart fx:id="statisticsChart" layoutX="700.0" layoutY="50.0" prefHeight="300.0" prefWidth="300.0" title="Statistiques des prix" />
+        
+        <Text fx:id="listartwork" layoutX="236.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Liste des Œuvres d'Art" />
+        <HBox layoutX="10.0" layoutY="370.0" spacing="10.0">
+            <Button fx:id="btnAdd" mnemonicParsing="false" text="Ajouter" onAction="#addArtwork" styleClass="add-forum-button forum-action-button" />
+            <Button fx:id="btnupdate" mnemonicParsing="false" text="Modifier" onAction="#btnupdate" styleClass="add-forum-button forum-action-button" />
+            <Button fx:id="btndelete" mnemonicParsing="false" text="Supprimer" onAction="#deleteart" styleClass="add-forum-button forum-action-button" />
+            <Button fx:id="btnVisualiser" mnemonicParsing="false" text="👁" onAction="#visualiserToutesCommandes" styleClass="forum-action-button" />
+        </HBox>
+    </children>
+</AnchorPane>

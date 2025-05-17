@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+<?import java.net.URL?>
+<?import javafx.scene.text.Text?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+
+<VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="tn.esprit.controllers.FrontArtworkController"
+      styleClass="root">
+
+    <!-- Top Navigation Bar -->
+    <HBox styleClass="top-bar" alignment="CENTER" spacing="20" style="-fx-background-color: transparent;">
+        <!-- Logo -->
+
+        <HBox styleClass="search-bar-container" HBox.hgrow="ALWAYS">
+            <FontAwesomeIconView glyphName="SEARCH" styleClass="search-icon" size="1.2em"/>
+            <TextField fx:id="searchField" promptText="Rechercher des œuvres d'art..."
+                       styleClass="search-field" HBox.hgrow="ALWAYS"/>
+        </HBox>
+
+        <!-- Navigation Items - Version consolidée -->
+
+
+        <!-- Profile Section -->
+        <HBox alignment="CENTER" spacing="8">
+            <ImageView fx:id="profileImage" fitWidth="40" fitHeight="40" pickOnBounds="true" preserveRatio="true" styleClass="profile-image"/>
+
+        </HBox>
+    </HBox>
+
+    <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS" styleClass="main-scroll-pane" fitToHeight="false">
+        <TilePane fx:id="artworkGrid" styleClass="masonry-grid" hgap="16" vgap="16" prefColumns="4">
+            <!-- Artwork cards will be added here dynamically -->
+        </TilePane>
+    </ScrollPane>
+
+    <stylesheets>
+        <URL value="@styles/pinterest-style.css"/>
+        <URL value="@styles/frontartwork.css"/>
+    </stylesheets>
+</VBox>

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.effect.DropShadow?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.DetailsAtelierController"
+            styleClass="root" stylesheets="@styles.css">
+    <children>
+        <VBox AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0"
+              spacing="20" alignment="TOP_LEFT" styleClass="container">
+
+            <!-- Top Bar with elegant design -->
+            <HBox alignment="CENTER_LEFT" spacing="15" styleClass="card">
+                <padding>
+                    <Insets top="15" right="20" bottom="15" left="20" />
+                </padding>
+
+                <Text text="Détails de l'atelier" styleClass="header-label" />
+            </HBox>
+
+            <!-- Main Content in an elegant card -->
+            <HBox spacing="20" VBox.vgrow="ALWAYS">
+                <!-- Left side with workshop details -->
+                <VBox spacing="20" styleClass="card" HBox.hgrow="ALWAYS" minWidth="400">
+                    <padding>
+                        <Insets top="25" right="25" bottom="25" left="25" />
+                    </padding>
+
+                    <Text text="Informations de l'atelier" styleClass="sub-header"/>
+                    <Separator />
+                    
+                    <GridPane hgap="15" vgap="15">
+                        <columnConstraints>
+                            <ColumnConstraints percentWidth="30" />
+                            <ColumnConstraints percentWidth="70" />
+                        </columnConstraints>
+
+                        <Text text="Titre:" styleClass="label" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+                        <Text fx:id="titreLabel" styleClass="details-value" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+
+                        <Text text="Lieu:" styleClass="label" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+                        <Text fx:id="lieuLabel" styleClass="details-value" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+
+                        <Text text="Date:" styleClass="label" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+                        <Text fx:id="dateLabel" styleClass="details-value" GridPane.rowIndex="2" GridPane.columnIndex="1" />
+
+                        <Text text="Places max:" styleClass="label" GridPane.rowIndex="3" GridPane.columnIndex="0" />
+                        <Text fx:id="placesLabel" styleClass="details-value" GridPane.rowIndex="3" GridPane.columnIndex="1" />
+                        
+                        <Text text="Description:" styleClass="label" GridPane.rowIndex="4" GridPane.columnIndex="0" GridPane.valignment="TOP" />
+                        <Text fx:id="descriptionLabel" wrappingWidth="400" styleClass="details-value" 
+                              GridPane.rowIndex="4" GridPane.columnIndex="1" />
+                    </GridPane>
+                    
+                    <VBox alignment="CENTER" VBox.vgrow="ALWAYS">
+                        <ImageView fx:id="imageView" fitWidth="300" fitHeight="200" preserveRatio="true" styleClass="details-image">
+                            <effect>
+                                <DropShadow color="rgba(0,0,0,0.2)" radius="10" />
+                            </effect>
+                        </ImageView>
+                    </VBox>
+                </VBox>
+
+                <!-- Right side with participants list -->
+                <VBox spacing="15" styleClass="card" HBox.hgrow="ALWAYS" minWidth="300">
+                    <padding>
+                        <Insets top="25" right="25" bottom="25" left="25" />
+                    </padding>
+                    
+                    <Text text="Liste des participants" styleClass="sub-header"/>
+                    <Separator />
+                    
+                    <ListView fx:id="inscriptionsListView" VBox.vgrow="ALWAYS" styleClass="list-view" />
+                    
+                    <HBox spacing="10" alignment="CENTER">
+                        <Button text="Accepter" onAction="#acceptInscription" styleClass="button">
+                            <graphic>
+                                <Text text="✓" />
+                            </graphic>
+                        </Button>
+                        <Button text="Refuser" onAction="#refuseInscription" styleClass="button-secondary">
+                            <graphic>
+                                <Text text="✕" />
+                            </graphic>
+                        </Button>
+                        <Button text="Supprimer" onAction="#deleteSelectedInscription" styleClass="button-secondary">
+                            <graphic>
+                                <Text text="🗑" />
+                            </graphic>
+                        </Button>
+                    </HBox>
+                </VBox>
+            </HBox>
+            
+            <!-- Bottom action bar -->
+            <HBox spacing="15" alignment="CENTER" styleClass="card">
+                <padding>
+                    <Insets top="15" right="15" bottom="15" left="15" />
+                </padding>
+                <Button text="Télécharger PDF" onAction="#downloadPdf" styleClass="button-accent">
+                    <graphic>
+                        <Text text="📄" />
+                    </graphic>
+                </Button>
+                <Button text="Fermer" onAction="#closeDetails" styleClass="button-outline">
+                    <graphic>
+                        <Text text="✕" />
+                    </graphic>
+                </Button>
+            </HBox>
+        </VBox>
+    </children>
+</AnchorPane>

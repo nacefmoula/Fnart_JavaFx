@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane fx:id="rootPane" prefHeight="600.0" prefWidth="800.0"   xmlns="http://javafx.com/javafx/20.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.ListeBeneficiairesController">
+   <children>
+      <VBox alignment="TOP_CENTER" prefHeight="600.0" prefWidth="800.0" spacing="20.0" stylesheets="@css/pinterest-style.css">
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+
+         <!-- Title -->
+         <Label text="Liste des Bénéficiaires" styleClass="form-title">
+            <VBox.margin>
+               <Insets bottom="20.0" />
+            </VBox.margin>
+         </Label>
+
+         <!-- Search and Filter Controls -->
+         <HBox alignment="CENTER" spacing="20.0">
+            <TextField fx:id="searchTextField" promptText="Rechercher..." prefWidth="300.0" styleClass="search-bar-container" />
+            <ChoiceBox fx:id="sortChoice" prefWidth="150.0" styleClass="download-option" />
+         </HBox>
+
+         <!-- List View -->
+         <ListView fx:id="beneficiairesListView" prefHeight="400.0" prefWidth="700.0"  styleClass="card"/>
+
+         <!-- Back Button -->
+         <Button fx:id="backButton" mnemonicParsing="false" onAction="#handleBack" text="Retour"  styleClass="download-menu">
+            <VBox.margin>
+               <Insets top="20.0" />
+            </VBox.margin>
+         </Button>
+      </VBox>
+   </children>
+</AnchorPane>

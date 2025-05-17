@@ -1,0 +1,457 @@
+/* Styles généraux */
+.root {
+    -fx-background-color: #e8f0f0;
+    -fx-font-family: 'Segoe UI', sans-serif;
+    -fx-min-width: 800;
+    -fx-min-height: 600;
+}
+
+/* Éléments cliquables */
+.clickable {
+    -fx-cursor: hand;
+}
+
+.clickable:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 15, 0, 0, 3);
+    -fx-translate-y: -2;
+}
+
+/* Navbar styles */
+.navbar {
+    -fx-background-color: white;
+    -fx-padding: 10 20;
+    -fx-min-height: 50;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 8, 0, 0, 1);
+}
+
+.nav-logo {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2196F3;
+}
+
+.nav-button {
+    -fx-background-color: #2196F3;
+    -fx-text-fill: white;
+    -fx-border-radius: 20;
+    -fx-background-radius: 20;
+    -fx-cursor: hand;
+    -fx-padding: 8 16;
+    -fx-min-width: 100;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 4, 0, 0, 2);
+}
+
+.nav-button:hover {
+    -fx-background-color: #1976D2;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 6, 0, 0, 3);
+    -fx-translate-y: -1;
+}
+
+/* Sidebar styles */
+.sidebar {
+    -fx-background-color: #1a1a1a;
+    -fx-padding: 20;
+}
+
+.sidebar-logo {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-padding: 0 0 30 0;
+    -fx-alignment: CENTER;
+}
+
+.menu-list {
+    -fx-padding: 20 0 0 0;
+    -fx-spacing: 8;
+}
+
+.menu-item {
+    -fx-padding: 12 15;
+    -fx-spacing: 15;
+    -fx-alignment: center-left;
+    -fx-cursor: hand;
+    -fx-background-radius: 8;
+    -fx-min-height: 40;
+}
+
+.menu-item:hover {
+    -fx-background-color: #2d2d2d;
+}
+
+.menu-item-active {
+    -fx-background-color: #2d2d2d;
+}
+
+.menu-item .label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #e0e0e0;
+}
+
+.menu-icon {
+    -fx-font-size: 16px;
+    -fx-text-fill: #e0e0e0;
+    -fx-min-width: 25;
+}
+
+/* Main content styles */
+.main-scroll-pane {
+    -fx-background: transparent;
+    -fx-background-color: transparent;
+}
+
+.main-scroll-pane > .viewport {
+    -fx-background-color: transparent;
+}
+
+.main-content {
+    -fx-background-color: transparent;
+    -fx-fill-width: true;
+}
+
+/* Search Bar */
+.search-bar-container {
+    -fx-padding: 0 0 20 0;
+    -fx-min-height: 40;
+}
+
+.search-field {
+    -fx-background-color: white;
+    -fx-padding: 8 12;
+    -fx-background-radius: 20;
+    -fx-min-height: 35;
+}
+
+.filter-combo {
+    -fx-background-color: white;
+    -fx-padding: 8;
+    -fx-background-radius: 20;
+    -fx-min-width: 120;
+    -fx-min-height: 35;
+}
+
+/* Featured artwork styles */
+.featured-artwork-container {
+    -fx-background-color: white;
+    -fx-background-radius: 12;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 8, 0, 0, 0);
+    -fx-padding: 20;
+    -fx-max-width: 1200;
+}
+
+.featured-artwork-container .section-title {
+    -fx-padding: 0 0 20 0;
+}
+
+.featured-artwork-card {
+    -fx-fill-width: true;
+}
+
+.featured-image {
+    -fx-background-radius: 8;
+}
+
+.featured-info {
+    -fx-spacing: 10;
+    -fx-padding: 10 0;
+    -fx-max-width: 600;
+}
+
+.featured-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+}
+
+.featured-artist {
+    -fx-font-size: 16px;
+    -fx-text-fill: #666666;
+}
+
+.featured-description {
+    -fx-wrap-text: true;
+    -fx-text-fill: #333333;
+}
+
+.favorite-button {
+    -fx-background-color: transparent;
+    -fx-border-color: #ff5757;
+    -fx-border-radius: 50%;
+    -fx-min-width: 40px;
+    -fx-min-height: 40px;
+    -fx-cursor: hand;
+}
+
+.favorite-button:hover {
+    -fx-background-color: #ff5757;
+}
+
+/* Artwork grid styles */
+.section-title {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+    -fx-padding: 20 0 10 0;
+}
+
+.artwork-grid {
+    -fx-hgap: 20;
+    -fx-vgap: 8;
+    -fx-alignment: center;
+}
+
+.artwork-card {
+    -fx-background-color: white;
+    -fx-padding: 8;
+    -fx-background-radius: 12;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 8, 0, 0, 0);
+    -fx-cursor: hand;
+    -fx-pref-width: 250;
+    -fx-max-width: 300;
+    -fx-alignment: center;
+}
+
+.artwork-card:hover {
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 12, 0, 0, 0);
+    -fx-translate-y: -2;
+    -fx-transition-duration: 0.2s;
+}
+
+.artwork-image {
+    -fx-background-radius: 8;
+    -fx-fit-width: 100%;
+    -fx-preserve-ratio: true;
+}
+.artwork-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-wrap-text: true;
+    -fx-padding: 4 0 0 0; /* Réduire le padding */
+    -fx-text-alignment: center;
+}
+
+.artwork-artist {
+    -fx-font-size: 14px;
+    -fx-text-fill: #666666;
+    -fx-wrap-text: true;
+    -fx-text-alignment: center;
+    -fx-padding: 0 0 2 0; /* Compacter */
+}
+
+.pin-title {
+    -fx-padding: 4 0 0 0; /* Réduire l'espace au-dessus du titre */
+}
+
+/* Popular Artworks Section */
+.popular-section {
+    -fx-padding: 20px 0;
+    -fx-spacing: 15px;
+}
+
+.popular-artworks-container {
+    -fx-alignment: CENTER;
+    -fx-spacing: 20px;
+    -fx-padding: 20px;
+    -fx-min-height: 400px;
+}
+
+.popular-scroll {
+    -fx-background-color: transparent;
+    -fx-padding: 10px;
+}
+
+.popular-scroll > .viewport {
+    -fx-background-color: transparent;
+}
+
+.popular-grid {
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 10px;
+    -fx-spacing: 20px;
+    -fx-min-height: 280px;
+}
+
+.popular-card {
+    -fx-background-color: white;
+    -fx-background-radius: 12px;
+    -fx-padding: 12px;
+    -fx-spacing: 8px;
+    -fx-pref-width: 220px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 8, 0, 0, 2);
+    -fx-alignment: CENTER;
+}
+
+.popular-card:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 12, 0, 0, 4);
+    -fx-translate-y: -2;
+    -fx-transition: all 0.3s ease;
+}
+
+.popular-card ImageView {
+    -fx-fit-width: 180px;
+    -fx-fit-height: 180px;
+    -fx-background-radius: 8px;
+}
+
+.popular-card .artwork-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-alignment: CENTER;
+}
+
+.popular-card .artwork-artist {
+    -fx-font-size: 14px;
+    -fx-text-fill: #6c757d;
+    -fx-text-alignment: CENTER;
+}
+
+/* Style de la scrollbar */
+.scroll-pane > .scroll-bar:vertical {
+    -fx-background-color: transparent;
+    -fx-padding: 0 0 0 5;
+}
+
+.scroll-pane > .scroll-bar:vertical > .thumb {
+    -fx-background-color: #999999;
+    -fx-background-radius: 5;
+}
+
+.scroll-pane > .scroll-bar:vertical > .track {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane > .scroll-bar:vertical > .increment-button,
+.scroll-pane > .scroll-bar:vertical > .decrement-button {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+/* Media queries pour la responsivité */
+.root:small {
+    .sidebar {
+        -fx-min-width: 180;
+        -fx-max-width: 180;
+    }
+    
+    .featured-image {
+        -fx-fit-width: 200;
+        -fx-fit-height: 200;
+    }
+    
+    .artwork-card {
+        -fx-pref-width: 200;
+    }
+}
+
+.cart-button {
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+    -fx-background-radius: 30;
+    -fx-min-width: 40px;
+    -fx-min-height: 40px;
+    -fx-max-width: 40px;
+    -fx-max-height: 40px;
+    -fx-font-size: 18px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 2);
+    -fx-cursor: hand;
+}
+
+.cart-button:hover {
+    -fx-background-color: #45a049;
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.4), 8, 0, 0, 3);
+}
+
+.cart-button:pressed {
+    -fx-background-color: #3d8b40;
+    -fx-scale-x: 0.95;
+    -fx-scale-y: 0.95;
+}
+
+.cart-label {
+    -fx-text-fill: #4CAF50;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+/* Animation de danse pour les cartes */
+@keyframes card-zoom {
+    0%   { transform: scale(1); }
+    30%  { transform: scale(1.10); }
+    60%  { transform: scale(0.97); }
+    80%  { transform: scale(1.04); }
+    100% { transform: scale(1); }
+}
+
+.pin-card {
+    -fx-background-radius: 12px;
+    -fx-background-color: white;
+    -fx-padding: 8 8 4 8; /* Réduction du padding inférieur */
+}
+
+.artwork-card {
+    -fx-padding: 8 8 4 8; /* Réduction du padding inférieur */
+}
+
+.pin-card:hover {
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 12, 0, 0, 4);
+    -fx-translate-y: -5px;
+    -fx-animation: card-zoom 0.5s cubic-bezier(.4,2,.6,1) both;
+    -fx-transition: all 0.3s ease;
+    z-index: 2;
+}
+
+.pin-title {
+    -fx-padding: 6 0 2 0;
+}
+
+.cart-badge {
+    -fx-background-color: #FFD600;
+    -fx-text-fill: #222;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 50%;
+    -fx-min-width: 22px;
+    -fx-min-height: 22px;
+    -fx-alignment: center;
+    -fx-padding: 0;
+    -fx-border-color: white;
+    -fx-border-width: 2;
+    -fx-translate-x: 8;
+    -fx-translate-y: -8;
+}
+/* Add these styles to your pinterest-style.css file */
+
+.pin-save-button {
+    -fx-background-color: #e60023;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 24px;
+    -fx-padding: 8px 16px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 3, 0, 0, 1);
+    -fx-opacity: 0.0;
+    -fx-transition: opacity 0.2s ease-in-out;
+}
+
+.pin-card:hover .pin-save-button {
+    -fx-opacity: 1.0;
+}
+
+.pin-save-button:hover {
+    -fx-background-color: #ad081b;
+}
+
+/* Optional: Add hover effect to the card */
+.pin-card {
+    -fx-background-color: white;
+    -fx-background-radius: 16px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 0);
+    -fx-transition: transform 0.2s, effect 0.2s;
+}
+
+.pin-card:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 0, 0);
+    -fx-scale-x: 1.02;
+    -fx-scale-y: 1.02;
+}

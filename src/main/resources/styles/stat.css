@@ -1,0 +1,28 @@
+.root {
+    -fx-background-color: #f0f0f0; /* Couleur de fond générale */
+}
+
+.title-label {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333;
+}
+
+.chart-container {
+    -fx-background-color: white;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0, 0, 5); /* Ombre */
+    -fx-padding: 10px;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+}
+
+/* Optional: Style the chart elements if possible (depends on the charting library) */
+.chart {
+    /* Example: */
+    /* -fx-background-color: lightblue; */
+}
+
+/* Example of hover effect (apply to buttons, etc.) */
+.button:hover {
+    -fx-background-color: #ddd;
+}

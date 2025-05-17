@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" stylesheets="css/AdminDashboard.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.DetailDonsBackController">
+    <VBox alignment="CENTER" spacing="20" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+        <Label text="Détails du Don" />
+        
+        <GridPane hgap="20" vgap="20" >
+            <Label text="Type:"  GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+            <Label fx:id="typeLabel"  GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+            
+            <Label text="Valeur:"  GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+            <Label fx:id="valeurLabel"  GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+            
+            <Label text="Description:"  GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+            <TextArea fx:id="descriptionArea" editable="false" wrapText="true" prefRowCount="3"  GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+            
+            <Label text="Bénéficiaire:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+            <Label fx:id="beneficiaireLabel"  GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+        </GridPane>
+        
+        <HBox spacing="20" alignment="CENTER">
+            <Button fx:id="closeButton" text="Fermer" onAction="#handleClose" style="-fx-background-color: #E74C3C; -fx-text-fill: #ECF0F1; -fx-font-weight: bold;"/>
+        </HBox>
+    </VBox>
+</AnchorPane> 

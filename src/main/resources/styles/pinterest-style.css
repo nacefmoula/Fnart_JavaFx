@@ -1,0 +1,158 @@
+.root {
+    -fx-background-color: #f5f5f5;
+    /* Définir les variables de couleur basées sur #8f441c */
+    -color-primary: #8f441c;
+    -color-primary-light: #b05e36;
+    -color-primary-dark: #6b3013;
+    -color-accent: #f3d5c4;
+    -color-text-on-primary: white;
+    -color-text-primary: #333333;
+}
+
+.top-bar {
+    -fx-background-color: linear-gradient(to bottom, -color-primary, -color-primary-dark);
+    -fx-padding: 15px 30px 15px 30px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.25), 12, 0, 0, 2);
+    -fx-background-radius: 0 0 18px 18px;
+    -fx-spacing: 24px;
+    -fx-border-width: 0 0 3px 0;
+    -fx-border-color: transparent transparent -color-accent transparent;
+    -fx-border-radius: 0 0 20px 20px;
+}
+
+.logo {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #e60023;
+}
+
+.search-bar-container {
+    -fx-background-color: #f0f0f0;
+    -fx-background-radius: 24px;
+    -fx-padding: 8px 16px;
+    -fx-spacing: 10px;
+    -fx-alignment: center;
+}
+
+.search-field {
+    -fx-background-color: transparent;
+    -fx-prompt-text-fill: #767676;
+    -fx-font-size: 14px;
+    -fx-padding: 8px;
+    -fx-border-width: 0;
+}
+
+.search-icon {
+    -fx-fill: #767676;
+}
+
+.nav-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: -color-text-on-primary;
+    -fx-font-size: 15px;
+    -fx-font-weight: 500;
+    -fx-padding: 10px 20px;
+    -fx-background-radius: 12px;
+    -fx-cursor: hand;
+    -fx-transition: all 0.2s;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 2, 0, 0, 0);
+}
+
+.nav-button:hover, .nav-button:selected {
+    -fx-background-color: -color-accent;
+    -fx-text-fill: -color-primary-dark;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 6, 0, 0, 0);
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+.nav-icon {
+    -fx-fill: -color-accent;
+    -fx-font-size: 1.5em;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 1, 0, 0, 0);
+}
+
+.action-button {
+    -fx-background-color: #310E10;
+    -fx-text-fill: white;
+    -fx-background-radius: 20px;
+    -fx-padding: 8px 28px;
+    -fx-font-weight: bold;
+    -fx-font-size: 15px;
+}
+
+.action-button:hover {
+    -fx-background-color: #4a1518;
+}
+
+.profile-image {
+    -fx-border-radius: 50%;
+    -fx-background-radius: 50%;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.12), 5, 0, 0, 0);
+    -fx-border-color: #310E10;
+    -fx-border-width: 2px;
+    border-radius: 50%;
+    border: 2px solid #310E10;
+}
+
+.accounts-menu {
+    -fx-background-color: transparent;
+    -fx-text-fill: #444;
+    -fx-font-size: 15px;
+}
+
+.nav-label {
+    -fx-text-fill: -color-accent;
+    text-fill: #f3d5c4;
+    -fx-font-size: 12px;
+    font-size: 12px;
+    -fx-font-weight: bold;
+    font-weight: bold;
+}
+
+.main-scroll-pane {
+    -fx-background-color: transparent;
+    -fx-padding: 20px;
+    background-color: transparent;
+    padding: 20px;
+}
+
+.masonry-grid {
+    -fx-padding: 20px;
+    -fx-pref-tile-height: -1;
+}
+
+.divider {
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 0 1px 0 0;
+    -fx-padding: 0 12px;
+}
+
+/* Artwork card styles */
+.artwork-card {
+    -fx-background-color: white;
+    -fx-background-radius: 10px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);
+    -fx-padding: 10px;
+}
+
+.artwork-image {
+    -fx-background-radius: 5px;
+}
+
+.artwork-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #310E10;
+}
+
+.artwork-artist {
+    -fx-font-size: 14px;
+    -fx-text-fill: #666;
+}
+
+.artwork-price {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #310E10;
+} 

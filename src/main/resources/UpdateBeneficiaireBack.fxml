@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.ImageView?>
+
+<AnchorPane prefHeight="600.0" stylesheets="css/AdminDashboard.css" prefWidth="800.0"  xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.UpdateBeneficiaireBackController">
+    <VBox alignment="CENTER" spacing="20" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+        <Label text="Modifier le Bénéficiaire" />
+        
+        <GridPane hgap="20" vgap="20" >
+            <Label text="Nom:"  GridPane.rowIndex="0"/>
+            <TextField fx:id="NomTextField"  GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+            
+            <Label text="Email:"  GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+            <TextField fx:id="EmailTextField"  GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+            
+            <Label text="Téléphone:"  GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+            <TextField fx:id="TelephoneTextField"  GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+            
+            <Label text="Cause:"  GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+            <TextField fx:id="CauseTextField"  GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+            
+            <Label text="Association:"  GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+            <ChoiceBox fx:id="AssociationChoice"  GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+            
+            <Label text="Valeur Demandée:"  GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+            <TextField fx:id="ValeurTextField" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+            
+            <Label text="Description:"  GridPane.columnIndex="0" GridPane.rowIndex="6"/>
+            <TextArea fx:id="DescriptionTextArea" wrapText="true" prefRowCount="3"  GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+            
+            <Label text="Image:"  GridPane.columnIndex="0" GridPane.rowIndex="7"/>
+            <HBox spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                <ImageView fx:id="imagePreview" fitHeight="100" fitWidth="100" preserveRatio="true" />
+                <VBox spacing="5">
+                    <Button fx:id="uploadButton" text="Choisir une image" onAction="#handleImageUpload" style="-fx-background-color: #3498DB; -fx-text-fill: #ECF0F1; -fx-font-weight: bold;"/>
+                    <Button fx:id="clearButton" text="Effacer" onAction="#handleClearImage" style="-fx-background-color: #E74C3C; -fx-text-fill: #ECF0F1; -fx-font-weight: bold;"/>
+                </VBox>
+            </HBox>
+        </GridPane>
+        
+        <HBox spacing="20" alignment="CENTER">
+            <Button fx:id="UpdateButton" text="Mettre à jour" onAction="#handleUpdate" style="-fx-background-color: #27AE60; -fx-text-fill: #ECF0F1; -fx-font-weight: bold;"/>
+            <Button fx:id="DeleteButton" text="Supprimer" onAction="#handleDelete" style="-fx-background-color: #E74C3C; -fx-text-fill: #ECF0F1; -fx-font-weight: bold;"/>
+            <Button fx:id="BackButton" text="Retour" onAction="#handleBack" style="-fx-background-color: #95A5A6; -fx-text-fill: #ECF0F1; -fx-font-weight: bold;"/>
+        </HBox>
+    </VBox>
+</AnchorPane> 

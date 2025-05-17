@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<AnchorPane prefHeight="550.0" prefWidth="800.0" styleClass="root" stylesheets="@styles/forum-style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.AjouterForumController">
+   <children>
+      <VBox alignment="CENTER" layoutX="50.0" layoutY="50.0" prefHeight="450.0" prefWidth="700.0" spacing="20.0" styleClass="form-container" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="50.0">
+         <children>
+            <Label styleClass="form-title" text="Créer un Nouveau Forum">
+               <font>
+                  <Font name="Arial Bold" size="24.0" />
+               </font>
+            </Label>
+            <TextField fx:id="TFtitre" promptText="Titre du Forum" styleClass="form-input" />
+            <Label fx:id="warningtitle" styleClass="warning-label" text="Le titre doit contenir au moins 4 caractères." visible="false" />
+            <TextArea fx:id="TFDescription" prefHeight="100.0" promptText="Description du Forum" styleClass="form-input" wrapText="true" />
+            <Label fx:id="warningDescription" styleClass="warning-label" text="La description doit contenir au moins 12 caractères." visible="false" />
+            <ComboBox fx:id="TFCategorie" prefWidth="150.0" promptText="Catégorie" styleClass="form-input" />
+            <Label fx:id="warningComm" styleClass="warning-label" text="Veuillez sélectionner une catégorie." visible="false" />
+            <HBox alignment="CENTER" spacing="15.0">
+               <children>
+                  <Button fx:id="uploadbutton" mnemonicParsing="false" onAction="#uploadimg" styleClass="upload-button">
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@assets/upload.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <ImageView fx:id="imgView_reclamation" fitHeight="80.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" styleClass="image-preview" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" spacing="20.0">
+               <children>
+                  <Button fx:id="ajouterForumAction" mnemonicParsing="false" onAction="#ajouterForumAction" styleClass="primary-button" text="Créer le Forum" />
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+         <effect>
+            <DropShadow color="#9ecaed" height="15.0" radius="7.0" width="15.0" />
+         </effect>
+      </VBox>
+   </children>
+</AnchorPane>

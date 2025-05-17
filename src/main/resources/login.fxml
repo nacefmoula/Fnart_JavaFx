@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="680.0" prefWidth="900.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.LoginController">
+    <children>
+        <!-- Left side panel with image - Modified to fit full height -->
+        <AnchorPane prefHeight="680.0" prefWidth="350.0" style="-fx-background-color: #947268;">
+            <children>
+                <!-- Modified ImageView to fill the entire left side -->
+                <ImageView fitHeight="680.0" fitWidth="350.0" pickOnBounds="true" preserveRatio="false">
+                    <image>
+                        <Image url="@assets/paintingofawoman.jpeg" />
+                    </image>
+                </ImageView>
+                <!-- Overlay with semi-transparent background for better text readability -->
+                <AnchorPane  opacity="0.5" prefHeight="680.0" prefWidth="350.0" style="-fx-background-color: #947268;" />
+
+                <VBox alignment="CENTER" layoutX="25.0" layoutY="140.0" prefHeight="400.0" prefWidth="300.0">
+                    <children>
+                        <Label text="Bienvenue" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="36.0" />
+                            </font>
+                        </Label>
+                        <Label text="Un clic pour que la magie opère" textFill="WHITE">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                            <VBox.margin>
+                                <Insets top="10.0" />
+                            </VBox.margin>
+                        </Label>
+                        <Separator prefWidth="200.0" style="-fx-background-color: white;">
+                            <VBox.margin>
+                                <Insets bottom="20.0" top="20.0" />
+                            </VBox.margin>
+                        </Separator>
+                        <Label text="Pas encore membre?" textFill="WHITE">
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                        </Label>
+                        <Hyperlink fx:id="SignupLink" text="Inscrivez-vous ici" textFill="#ffcc00">
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                        </Hyperlink>
+                    </children>
+                </VBox>
+            </children>
+        </AnchorPane>
+
+        <!-- Right side form - Adapted for login -->
+        <AnchorPane layoutX="350.0" prefHeight="680.0" prefWidth="550.0">
+            <children>
+                <VBox alignment="TOP_CENTER" layoutX="25.0" layoutY="80.0" prefHeight="520.0" prefWidth="500.0" spacing="20.0">
+                    <children>
+                        <Label text="Connexion" textFill="#310E10">
+                            <font>
+                                <Font name="System Bold" size="32.0" />
+                            </font>
+                            <VBox.margin>
+                                <Insets bottom="10.0" />
+                            </VBox.margin>
+                        </Label>
+
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Un clic pour que la magie opère" textAlignment="CENTER" wrappingWidth="304.0">
+                            <font>
+                                <Font name="Bell MT" size="20.0" />
+                            </font>
+                            <VBox.margin>
+                                <Insets bottom="30.0" />
+                            </VBox.margin>
+                        </Text>
+
+                        <VBox prefHeight="70.0" prefWidth="500.0">
+                            <children>
+                                <Label text="Email">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="emailTF" prefHeight="40.0" promptText="Entrez votre adresse email" styleClass="modern-field" />
+                            </children>
+                        </VBox>
+
+                        <VBox prefHeight="70.0" prefWidth="500.0">
+                            <children>
+                                <Label text="Mot de passe">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </Label>
+                                <PasswordField fx:id="PasswordField" prefHeight="40.0" promptText="Entrez votre mot de passe" styleClass="modern-field" />
+                            </children>
+                        </VBox>
+
+                        <!-- Messages -->
+                        <VBox alignment="CENTER" prefHeight="50.0" prefWidth="500.0">
+                            <children>
+                                <Text fx:id="errorMessage" fill="RED" styleClass="error-message" visible="false" />
+                                <Text fx:id="successMessage" fill="GREEN" styleClass="success-message" visible="false" />
+                            </children>
+                        </VBox>
+
+                        <Hyperlink fx:id="forgetPasswordLink" text="Mot de passe oublié?" textFill="#8B6E4E">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                            <VBox.margin>
+                                <Insets top="-10.0" />
+                            </VBox.margin>
+                        </Hyperlink>
+
+                        <Button fx:id="LoginButton" mnemonicParsing="false" onAction="#handleLogin" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #310E10; -fx-text-fill: white; -fx-background-radius: 25;" text="Se connecter">
+                            <font>
+                                <Font name="System Bold" size="16.0" />
+                            </font>
+                            <VBox.margin>
+                                <Insets top="20.0" />
+                            </VBox.margin>
+                        </Button>
+
+                        <Button fx:id="googleSignInButton" mnemonicParsing="false" onAction="#handleGoogleSignIn" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #DB4437; -fx-text-fill: white; -fx-background-radius: 25;" text="Se connecter avec Google">
+                            <font>
+                                <Font name="System Bold" size="16.0" />
+                            </font>
+                            <VBox.margin>
+                                <Insets top="10.0" />
+                            </VBox.margin>
+                        </Button>
+                    </children>
+                </VBox>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0"  xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.AdminDashboardController">
+    <VBox alignment="CENTER" spacing="20" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0" stylesheets="@css/style.css">
+        <MenuBar stylesheets="@css/AdminDashboard.css">
+            <Menu text="Statut" >
+                <MenuItem text="En attente" onAction="#handleFilterEnAttente" />
+                <MenuItem text="Accepté" onAction="#handleFilterAccepte" />
+                <MenuItem text="Refusé" onAction="#handleFilterRefuse"/>
+            </Menu>
+        </MenuBar>
+        
+        <Label text="Liste des Bénéficiaires" />
+        
+        <HBox spacing="10" alignment="CENTER">
+            <TextField fx:id="searchTextField" promptText="Rechercher..."/>
+        </HBox>
+        
+        <ListView fx:id="beneficiairesListView" VBox.vgrow="ALWAYS" />
+        
+        <HBox spacing="20" alignment="CENTER">
+            <Button fx:id="addButton" text="Ajouter" styleClass="forum-btn"/>
+            <Button fx:id="backButton" text="Retour" styleClass="forum-btn-alt"  />
+        </HBox>
+    </VBox>
+</AnchorPane> 

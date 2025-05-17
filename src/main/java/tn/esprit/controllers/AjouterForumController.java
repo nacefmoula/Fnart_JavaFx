@@ -68,6 +68,13 @@ public class AjouterForumController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        // Récupération automatique de l'utilisateur si non transmis
+        if (currentUser == null) {
+            currentUser = tn.esprit.utils.SessionManager.getCurrentUser();
+            if (currentUser == null) {
+                System.err.println("[CRITIQUE] Aucun utilisateur en session lors de l'init d'AjouterForumController");
+            }
+        }
         TFCategorie.getItems().addAll(
                 "Art-Thérapie et Bien-Être",
                 "Techniques Artistiques",

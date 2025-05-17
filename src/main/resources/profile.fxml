@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.shape.Circle?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="tn.esprit.controllers.ProfileController" style="-fx-background-color: #F5F7FA;">
+    <left>
+        <!-- Left Sidebar - Improved gradient and spacing -->
+        <VBox spacing="25" style="-fx-background-color: linear-gradient(to bottom, #334342 0%, #6F4D38 50%, #331B19 100%); -fx-padding: 25 20; -fx-min-width: 260; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 5);">
+            <!-- Logo and App Name - Better centered with improved spacing -->
+            <VBox alignment="CENTER" spacing="12">
+                <padding>
+                    <Insets top="10" bottom="15"/>
+                </padding>
+                <StackPane>
+                    <Circle radius="35" fill="#E8E8E8"/>
+                    <ImageView fitHeight="70" fitWidth="70" preserveRatio="true">
+                        <clip>
+                            <Circle centerX="35" centerY="35" radius="35" />
+                        </clip>
+                        <image>
+                            <Image url="@/assets/paintingofawoman.jpeg" />
+                        </image>
+                    </ImageView>
+                </StackPane>
+                <Label style="-fx-font-size: 26px; -fx-font-weight: bold; -fx-text-fill: white; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 2, 0, 0, 1);" text="FNART" />
+            </VBox>
+
+            <!-- Navigation Menu - Better styling and hover effects -->
+            <VBox spacing="8" style="-fx-padding: 15 0;">
+                <Button fx:id="viewProfileButton" style="-fx-background-color: rgba(255,255,255,0.2); -fx-text-fill: white; -fx-font-size: 15px; -fx-alignment: CENTER_LEFT; -fx-background-radius: 8; -fx-padding: 12 15; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 3, 0, 0, 1);" text="View Profile">
+                    <graphic>
+                        <StackPane style="-fx-min-width: 30;">
+                            <Circle fill="rgba(255,255,255,0.3)" radius="13" />
+                            <ImageView fitHeight="16" fitWidth="16">
+                                <clip>
+                                    <Circle centerX="8" centerY="8" radius="8" />
+                                </clip>
+                            </ImageView>
+                        </StackPane>
+                    </graphic>
+                </Button>
+                <Button fx:id="editProfileButton" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-font-size: 15px; -fx-alignment: CENTER_LEFT; -fx-background-radius: 8; -fx-padding: 12 15; -fx-opacity: 0.9;" text="Edit Profile">
+                    <graphic>
+                        <StackPane style="-fx-min-width: 30;">
+                            <Circle fill="rgba(255,255,255,0.1)" radius="13" />
+                            <ImageView fitHeight="16" fitWidth="16">
+                                <clip>
+                                    <Circle centerX="8" centerY="8" radius="8" />
+                                </clip>
+                            </ImageView>
+                        </StackPane>
+                    </graphic>
+                </Button>
+                <Button fx:id="resetPasswordButton" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-font-size: 15px; -fx-alignment: CENTER_LEFT; -fx-background-radius: 8; -fx-padding: 12 15; -fx-opacity: 0.9;" text="Reset Password">
+                    <graphic>
+                        <StackPane style="-fx-min-width: 30;">
+                            <Circle fill="rgba(255,255,255,0.1)" radius="13" />
+                            <ImageView fitHeight="16" fitWidth="16">
+                                <clip>
+                                    <Circle centerX="8" centerY="8" radius="8" />
+                                </clip>
+                            </ImageView>
+                        </StackPane>
+                    </graphic>
+                </Button>
+            </VBox>
+
+            <!-- User Profile Section at Bottom - Improved card style -->
+            <Region VBox.vgrow="ALWAYS"/>
+            <HBox spacing="12" alignment="CENTER_LEFT" style="-fx-padding: 15; -fx-background-color: rgba(255,255,255,0.13); -fx-background-radius: 12; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);">
+                <StackPane>
+                    <Circle radius="22" fill="#E8E8E8"/>
+                    <ImageView fx:id="topProfilePicture" fitWidth="44" fitHeight="44" preserveRatio="true">
+                        <clip>
+                            <Circle centerX="22" centerY="22" radius="22" />
+                        </clip>
+                        <image>
+                            <Image url="@/assets/paintingofawoman.jpeg"/>
+                        </image>
+                    </ImageView>
+                </StackPane>
+                <VBox spacing="2">
+                    <Label fx:id="userNameLabel" style="-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 14px;" text="User Name"/>
+                    <Label fx:id="userEmailLabel" style="-fx-text-fill: rgba(255,255,255,0.8); -fx-font-size: 12px;" text="user@email.com"/>
+                </VBox>
+                <Region HBox.hgrow="ALWAYS" />
+                <Button fx:id="profileMenuButton" style="-fx-background-color: rgba(255,255,255,0.1); -fx-background-radius: 50%; -fx-padding: 8; -fx-min-width: 30; -fx-min-height: 30;">
+                    <graphic>
+                        <StackPane>
+                            <ImageView fitWidth="12" fitHeight="12">
+                                <clip>
+                                    <Circle centerX="6" centerY="6" radius="6" />
+                                </clip>
+                            </ImageView>
+                        </StackPane>
+                    </graphic>
+                </Button>
+            </HBox>
+        </VBox>
+    </left>
+
+    <center>
+        <ScrollPane fitToWidth="true" style="-fx-background: transparent; -fx-background-color: transparent; -fx-padding: 0;">
+            <VBox spacing="25" style="-fx-padding: 35 40;">
+                <!-- Header with Search Bar and Welcome Message - Improved layout and style -->
+                <VBox spacing="8">
+                    <HBox alignment="CENTER_LEFT">
+                        <Label fx:id="welcomeLabel" style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #222; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 1, 0, 0, 1);" text="Welcome back!" />
+                    </HBox>
+                    <HBox alignment="CENTER_LEFT">
+                        <Label fx:id="dateLabel" style="-fx-text-fill: #666666; -fx-font-size: 14px;" text="Monday, 12 November, 2024" />
+                    </HBox>
+                </VBox>
+
+                <!-- Container for View/Edit Profile Sections - Enhanced card design -->
+                <StackPane>
+                    <!-- View Profile Section - Improved layout and information display -->
+                    <VBox fx:id="viewProfileSection" spacing="30" style="-fx-background-color: white; -fx-padding: 35; -fx-background-radius: 16; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 15, 0, 0, 5);">
+                        <HBox alignment="CENTER_LEFT">
+                            <Label text="Account Information" style="-fx-font-size: 24; -fx-font-weight: bold; -fx-text-fill: #222;"/>
+                            <Region HBox.hgrow="ALWAYS"/>
+                            <Button style="-fx-background-color: #F0F0F0; -fx-text-fill: #555; -fx-font-size: 13px; -fx-background-radius: 8; -fx-padding: 8 16;">
+                                <graphic>
+                                    <HBox spacing="5" alignment="CENTER">
+                                        <StackPane>
+                                            <Circle fill="transparent" radius="8" />
+                                        </StackPane>
+                                        <Label text="Export Data" style="-fx-text-fill: #444;"/>
+                                    </HBox>
+                                </graphic>
+                            </Button>
+                        </HBox>
+
+                        <!-- Profile Picture and Camera Icon - Improved styling -->
+                        <StackPane alignment="CENTER" style="-fx-padding: 20 0 35 0;">
+                            <Circle fill="#F8F8F8" radius="65"/>
+                            <ImageView fx:id="profilePicture" fitHeight="130" fitWidth="130" preserveRatio="true">
+                                <clip>
+                                    <Circle centerX="65" centerY="65" radius="65" />
+                                </clip>
+                                <image>
+                                    <Image url="@/assets/paintingofawoman.jpeg"/>
+                                </image>
+                            </ImageView>
+                            <Button fx:id="changeProfilePictureButton" style="-fx-background-color: white; -fx-background-radius: 50%; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 0); -fx-min-width: 38; -fx-min-height: 38; -fx-padding: 10;"
+                                    StackPane.alignment="BOTTOM_RIGHT">
+                                <graphic>
+                                    <StackPane>
+                                        <ImageView fitHeight="18" fitWidth="18">
+                                            <clip>
+                                                <Circle centerX="9" centerY="9" radius="9" />
+                                            </clip>
+                                        </ImageView>
+                                    </StackPane>
+                                </graphic>
+                            </Button>
+                        </StackPane>
+
+                        <!-- User Information - Modern card design and improved layout -->
+                        <GridPane hgap="30" vgap="20" style="-fx-padding: 10;">
+                            <columnConstraints>
+                                <ColumnConstraints percentWidth="50" />
+                                <ColumnConstraints percentWidth="50" />
+                            </columnConstraints>
+
+                            <!-- First Row: Name & Email -->
+                            <VBox spacing="5" GridPane.columnIndex="0" GridPane.rowIndex="0"
+                                  style="-fx-padding: 18 20; -fx-background-color: #F8F9FA; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.03), 5, 0, 0, 2);">
+                                <Label style="-fx-font-size: 12px; -fx-text-fill: #666;" text="FULL NAME" />
+                                <Label fx:id="displayNameLabel" style="-fx-text-fill: #222; -fx-font-size: 16px; -fx-font-weight: bold;" text="John Smith" />
+                            </VBox>
+
+                            <VBox spacing="5" GridPane.columnIndex="1" GridPane.rowIndex="0"
+                                  style="-fx-padding: 18 20; -fx-background-color: #F8F9FA; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.03), 5, 0, 0, 2);">
+                                <Label style="-fx-font-size: 12px; -fx-text-fill: #666;" text="EMAIL ADDRESS" />
+                                <Label fx:id="displayEmailLabel" style="-fx-text-fill: #222; -fx-font-size: 16px; -fx-font-weight: bold;" text="john.smith@example.com" />
+                            </VBox>
+
+                            <!-- Second Row: Phone & Role -->
+                            <VBox spacing="5" GridPane.columnIndex="0" GridPane.rowIndex="1"
+                                  style="-fx-padding: 18 20; -fx-background-color: #F8F9FA; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.03), 5, 0, 0, 2);">
+                                <Label style="-fx-font-size: 12px; -fx-text-fill: #666;" text="PHONE NUMBER" />
+                                <Label fx:id="displayPhoneLabel" style="-fx-text-fill: #222; -fx-font-size: 16px; -fx-font-weight: bold;" text="+1 234 567 890" />
+                            </VBox>
+
+                            <VBox spacing="5" GridPane.columnIndex="1" GridPane.rowIndex="1"
+                                  style="-fx-padding: 18 20; -fx-background-color: #F8F9FA; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.03), 5, 0, 0, 2);">
+                                <Label style="-fx-font-size: 12px; -fx-text-fill: #666;" text="ROLE" />
+                                <Label fx:id="displayRoleLabel" style="-fx-text-fill: #222; -fx-font-size: 16px; -fx-font-weight: bold;" text="Artist" />
+                            </VBox>
+
+                            <!-- Third Row: Gender (with badge styling) -->
+                            <VBox spacing="5" GridPane.columnIndex="0" GridPane.rowIndex="2"
+                                  style="-fx-padding: 18 20; -fx-background-color: #F8F9FA; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.03), 5, 0, 0, 2);">
+                                <Label style="-fx-font-size: 12px; -fx-text-fill: #666;" text="GENDER" />
+                                <HBox alignment="CENTER_LEFT" spacing="5">
+                                    <Label fx:id="displayGenderLabel" style="-fx-text-fill: #222; -fx-font-size: 16px; -fx-font-weight: bold;" text="Female" />
+                                </HBox>
+                            </VBox>
+
+                            <!-- Activity Badge -->
+                            <HBox alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2"
+                                  style="-fx-padding: 18 20; -fx-background-color: rgba(51, 67, 66, 0.08); -fx-background-radius: 10;">
+                                <VBox alignment="CENTER" spacing="8">
+                                    <Label style="-fx-font-size: 12px; -fx-text-fill: #334342;" text="ACCOUNT STATUS" />
+                                    <HBox spacing="8" alignment="CENTER">
+                                        <StackPane>
+                                            <Circle radius="6" fill="#22C55E"/>
+                                        </StackPane>
+                                        <Label style="-fx-text-fill: #334342; -fx-font-size: 16px; -fx-font-weight: bold;" text="Active" />
+                                    </HBox>
+                                </VBox>
+                            </HBox>
+                        </GridPane>
+
+                        <!-- Actions Section - New Feature -->
+                        <HBox spacing="15" style="-fx-padding: 20 0 0 0;">
+                            <Button text="Edit Profile" style="-fx-background-color: #334342; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 12 25; -fx-background-radius: 8; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 1);"
+                                    onAction="#showEditProfile"/>
+                            <Button text="Security Settings" style="-fx-background-color: #F5F5F5; -fx-text-fill: #444; -fx-font-size: 14px; -fx-padding: 12 25; -fx-background-radius: 8; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 3, 0, 0, 1);"/>
+                        </HBox>
+                    </VBox>
+
+                    <!-- Edit Profile Section - Modern form layout -->
+                    <VBox fx:id="editProfileSection" spacing="20" style="-fx-background-color: white; -fx-padding: 35; -fx-background-radius: 16; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 15, 0, 0, 5);" visible="false">
+                        <HBox alignment="CENTER_LEFT">
+                            <Label text="Edit Profile" style="-fx-font-size: 24; -fx-font-weight: bold; -fx-text-fill: #222;"/>
+                            <Region HBox.hgrow="ALWAYS"/>
+                            <Button style="-fx-background-color: #FEF3F2; -fx-text-fill: #B42318; -fx-font-size: 13px; -fx-background-radius: 8; -fx-padding: 8 16;">
+                                <graphic>
+                                    <HBox spacing="5" alignment="CENTER">
+                                        <StackPane>
+                                            <Circle fill="transparent" radius="8" />
+                                        </StackPane>
+                                        <Label text="Cancel" style="-fx-text-fill: #B42318;"/>
+                                    </HBox>
+                                </graphic>
+                            </Button>
+                        </HBox>
+
+                        <!-- Profile Picture Section - Clean centered design -->
+                        <VBox alignment="CENTER" spacing="15" style="-fx-padding: 10 0 20 0;">
+                            <StackPane>
+                                <Circle fill="#F8F8F8" radius="65"/>
+                                <ImageView fx:id="editProfilePicture" fitHeight="130" fitWidth="130" preserveRatio="true">
+                                    <clip>
+                                        <Circle centerX="65" centerY="65" radius="65" />
+                                    </clip>
+                                    <image>
+                                        <Image url="@/assets/paintingofawoman.jpeg"/>
+                                    </image>
+                                </ImageView>
+                            </StackPane>
+                            <Button text="Change Photo" style="-fx-background-color: transparent; -fx-text-fill: #334342; -fx-font-size: 14px; -fx-padding: 8 20; -fx-border-color: #334342; -fx-border-radius: 8; -fx-border-width: 1px;"
+                                    onAction="#handleChangeProfilePicture"/>
+                        </VBox>
+
+                        <!-- Form Fields: Two per row, modern styling -->
+                        <GridPane hgap="25" vgap="20">
+                            <columnConstraints>
+                                <ColumnConstraints percentWidth="50"/>
+                                <ColumnConstraints percentWidth="50"/>
+                            </columnConstraints>
+
+                            <!-- First Name -->
+                            <VBox spacing="8" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                <Label text="First Name" style="-fx-text-fill: #444; -fx-font-size: 14px;"/>
+                                <TextField fx:id="fullNameField" style="-fx-background-color: #F8F9FA; -fx-background-radius: 8; -fx-text-fill: #222; -fx-padding: 12; -fx-border-color: #E5E7EB; -fx-border-radius: 8; -fx-border-width: 1px;"/>
+                            </VBox>
+
+                            <!-- Last Name -->
+                            <VBox spacing="8" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                                <Label text="Last Name" style="-fx-text-fill: #444; -fx-font-size: 14px;"/>
+                                <TextField fx:id="lastNameField" style="-fx-background-color: #F8F9FA; -fx-background-radius: 8; -fx-text-fill: #222; -fx-padding: 12; -fx-border-color: #E5E7EB; -fx-border-radius: 8; -fx-border-width: 1px;"/>
+                            </VBox>
+
+                            <!-- Email -->
+                            <VBox spacing="8" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                                <Label text="Email" style="-fx-text-fill: #444; -fx-font-size: 14px;"/>
+                                <TextField fx:id="emailField" style="-fx-background-color: #F8F9FA; -fx-background-radius: 8; -fx-text-fill: #222; -fx-padding: 12; -fx-border-color: #E5E7EB; -fx-border-radius: 8; -fx-border-width: 1px;"/>
+                            </VBox>
+
+                            <!-- Phone -->
+                            <VBox spacing="8" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                <Label text="Phone Number" style="-fx-text-fill: #444; -fx-font-size: 14px;"/>
+                                <TextField fx:id="phoneField" style="-fx-background-color: #F8F9FA; -fx-background-radius: 8; -fx-text-fill: #222; -fx-padding: 12; -fx-border-color: #E5E7EB; -fx-border-radius: 8; -fx-border-width: 1px;"/>
+                            </VBox>
+
+                            <!-- Date of Birth -->
+                            <VBox spacing="8" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                                <Label text="Date of Birth" style="-fx-text-fill: #444; -fx-font-size: 14px;"/>
+                                <DatePicker fx:id="dateOfBirthPicker" style="-fx-background-color: #F8F9FA; -fx-background-radius: 8; -fx-text-fill: #222; -fx-padding: 12; -fx-border-color: #E5E7EB; -fx-border-radius: 8; -fx-border-width: 1px;"/>
+                            </VBox>
+                        </GridPane>
+
+                        <!-- Bio Field - Modern textbox -->
+                        <VBox spacing="8" style="-fx-padding: 10 0 0 0;">
+                            <Label text="Bio" style="-fx-text-fill: #444; -fx-font-size: 14px;"/>
+                            <TextArea fx:id="bioTextArea" promptText="Write something about yourself..." wrapText="true"
+                                      style="-fx-background-color: #F8F9FA; -fx-background-radius: 8; -fx-text-fill: #222; -fx-pref-row-count: 3; -fx-border-color: #E5E7EB; -fx-border-radius: 8; -fx-border-width: 1px;"/>
+                        </VBox>
+
+                        <!-- Action Buttons -->
+                        <HBox alignment="CENTER_RIGHT" spacing="15" style="-fx-padding: 15 0 0 0;">
+                            <Button text="Discard Changes" style="-fx-background-color: transparent; -fx-text-fill: #555; -fx-font-size: 14px; -fx-padding: 12 20;"
+                                    onAction="#showViewProfile"/>
+                            <Button fx:id="saveButton" text="Save Changes"
+                                    style="-fx-background-color: linear-gradient(to right, #334342, #6F4D38); -fx-text-fill: white; -fx-padding: 12 30; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 14px; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 8, 0, 0, 2);"/>
+                        </HBox>
+                    </VBox>
+                </StackPane>
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

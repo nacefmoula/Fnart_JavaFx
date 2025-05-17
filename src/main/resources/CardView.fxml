@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.text.Text?>
+
+<VBox fx:id="cardContainer" styleClass="workshop-card" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.CardViewController">
+    <children>
+        <!-- Workshop Image -->
+        <ImageView fx:id="workshopImage" fitWidth="280" fitHeight="160" preserveRatio="true">
+            <Image url="@images/image.png" />
+        </ImageView>
+        
+        <!-- Workshop Status Badge -->
+        <AnchorPane>
+            <children>
+                <Label fx:id="statusLabel" text="Actif" styleClass="workshop-card-status, workshop-card-status-active" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="-20.0" />
+            </children>
+        </AnchorPane>
+        
+        <!-- Workshop Details -->
+        <VBox spacing="8" style="-fx-padding: 12px;">
+            <Label fx:id="titleLabel" text="Titre de l'atelier" styleClass="workshop-card-title" wrapText="true" />
+            
+            <HBox alignment="CENTER_LEFT" spacing="5">
+                <Label text="Date:" />
+                <Label fx:id="dateLabel" text="01/05/2025" styleClass="workshop-card-date" />
+            </HBox>
+            
+            <HBox alignment="CENTER_LEFT" spacing="5">
+                <Label text="Lieu:" />
+                <Label fx:id="locationLabel" text="Salle 101" styleClass="workshop-card-date" />
+            </HBox>
+            
+            <HBox alignment="CENTER_LEFT" spacing="5">
+                <Label text="Capacité:" />
+                <Label fx:id="capacityLabel" text="20/30" styleClass="workshop-card-capacity" />
+                <Region HBox.hgrow="ALWAYS" />
+                <Label fx:id="priceLabel" text="45 TND" styleClass="workshop-card-price" />
+            </HBox>
+            
+            <Text fx:id="descriptionText" text="Description courte de l'atelier qui sera affichée ici, avec des détails importants..." styleClass="workshop-card-description" wrappingWidth="250" />
+            
+            <HBox alignment="CENTER" spacing="10" styleClass="workshop-card-buttons">
+                <Button fx:id="detailsButton" text="Détails" styleClass="workshop-card-button" />
+                <Button fx:id="editButton" text="Modifier" styleClass="workshop-card-button" />
+                <Button fx:id="deleteButton" text="Supprimer" styleClass="workshop-card-button" />
+            </HBox>
+        </VBox>
+    </children>
+</VBox>

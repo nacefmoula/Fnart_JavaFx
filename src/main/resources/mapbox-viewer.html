@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carte de localisation</title>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+        #map {
+            width: 100%;
+            height: 100%;
+        }
+        .map-overlay {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 4px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            font-size: 14px;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <div class="map-overlay" id="location-info"></div>
+    
+    <script>
+        // Accès à l'API Mapbox
+        mapboxgl.accessToken = 'pk.eyJ1IjoibmFhY2VmMTQiLCJhIjoiY205eDN4cWFpMG83MDJrczc0a3d4d2k5OSJ9.3vkoN46G5OKLI22R66zqbQ';
+        
+        // Récupérer les paramètres de l'URL
+        const urlParams = new URLSearchParams(window.location.search);
+        let lat = 36.8;
+        let lng = 10.18;
+        let locationName = "Localisation";
+        let zoom = 15;
+        
+        // Si des coordonnées sont spécifiées dans l'URL, les utiliser
+        if (urlParams.has('lat') && urlParams.has('lng')) {
+            lat = parseFloat(urlParams.get('lat'));
+            lng = parseFloat(urlParams.get('lng'));
+        }
+        
+        // Si un nom de lieu est spécifié
+        if (urlParams.has('name')) {
+            locationName = decodeURIComponent(urlParams.get('name'));
+        }
+        
+        // Initialiser la carte
+        const map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v11',
+            center: [lng, lat],
+            zoom: zoom
+        });
+        
+        // Ajouter les contrôles de navigation
+        map.addControl(new mapboxgl.NavigationControl());
+        
+        // Ajouter un marqueur à la position spécifiée
+        const marker = new mapboxgl.Marker({
+            color: "#a47148"
+        })
+            .setLngLat([lng, lat])
+            .addTo(map);
+        
+        // Ajouter un popup pour afficher le nom du lieu
+        new mapboxgl.Popup({
+            closeButton: false,
+            closeOnClick: false
+        })
+            .setLngLat([lng, lat])
+            .setHTML(`<h3>${locationName}</h3>`)
+            .addTo(map);
+        
+        // Mettre à jour les informations de localisation
+        document.getElementById('location-info').textContent = locationName;
+    </script>
+</body>
+</html>

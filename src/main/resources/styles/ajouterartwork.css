@@ -1,0 +1,95 @@
+
+    -fx-background-color: #f5f6fa;
+}
+
+.text-title {
+    -fx-font-family: 'Segoe UI';
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-fill: #2c3e50;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 1, 0, 0, 1);
+}
+
+.label {
+    -fx-font-family: 'Segoe UI';
+    -fx-font-size: 14px;
+    -fx-text-fill: #34495e;
+    -fx-font-weight: 600;
+}
+
+.text-field {
+    -fx-min-height: 35px;
+    -fx-font-size: 14px;
+    -fx-font-family: 'Segoe UI';
+    -fx-background-color: white;
+    -fx-border-color: #dcdde1;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-padding: 8px 12px;
+    -fx-prompt-text-fill: #95a5a6;
+}
+
+.text-field:focused {
+    -fx-border-color: #3498db;
+    -fx-border-width: 2px;
+    -fx-background-color: #f8f9fa;
+    -fx-effect: dropshadow(gaussian, rgba(52,152,219,0.1), 4, 0, 0, 0);
+}
+
+.description-field {
+    -fx-pref-height: 80px;
+    -fx-alignment: top-left;
+}
+
+.button-upload {
+    -fx-background-color: #ecf0f1;
+    -fx-text-fill: #2c3e50;
+    -fx-font-size: 14px;
+    -fx-font-family: 'Segoe UI';
+    -fx-font-weight: 600;
+    -fx-padding: 8px 16px;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-cursor: hand;
+    -fx-min-height: 35px;
+}
+
+.button-upload:hover {
+    -fx-background-color: #dcdde1;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 4, 0, 0, 0);
+}
+
+.button-save {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-family: 'Segoe UI';
+    -fx-font-weight: bold;
+    -fx-padding: 12px 30px;
+    -fx-min-width: 140px;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 1);
+}
+
+.button-save:hover {
+    -fx-background-color: #2980b9;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 8, 0, 0, 2);
+    -fx-translate-y: -1px;
+}
+
+.button-save:pressed {
+    -fx-scale-x: 0.98;
+    -fx-scale-y: 0.98;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 3, 0, 0, 1);
+    -fx-translate-y: 0px;
+}
+
+.image-preview {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 10, 0, 0, 2);
+    -fx-background-color: white;
+    -fx-background-radius: 6px;
+    -fx-border-radius: 6px;
+    -fx-border-color: #dcdde1;
+} 

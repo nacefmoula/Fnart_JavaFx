@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane fx:id="rootPane" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #2C3E50;" xmlns="http://javafx.com/javafx/20.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.HomeBackController">
+   <children>
+      <VBox alignment="CENTER" prefHeight="600.0" prefWidth="800.0" spacing="30.0">
+         <padding>
+            <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+         </padding>
+         
+         <!-- Title -->
+         <Label text="Back Office - Administration" style="-fx-text-fill: #ECF0F1; -fx-font-size: 32px; -fx-font-weight: bold;">
+            <VBox.margin>
+               <Insets bottom="50.0" />
+            </VBox.margin>
+         </Label>
+         
+         <!-- Menu Buttons -->
+         <Button fx:id="beneficiairesButton" mnemonicParsing="false" onAction="#handleBeneficiaires" prefHeight="60.0" prefWidth="400.0" text="Gestion des Bénéficiaires" 
+                 style="-fx-background-color: #34495E; -fx-text-fill: #ECF0F1; -fx-font-weight: bold; -fx-font-size: 18px;">
+            <VBox.margin>
+               <Insets bottom="20.0" />
+            </VBox.margin>
+         </Button>
+         
+         <Button fx:id="donsButton" mnemonicParsing="false" onAction="#handleDons" prefHeight="60.0" prefWidth="400.0" text="Gestion des Dons" 
+                 style="-fx-background-color: #34495E; -fx-text-fill: #ECF0F1; -fx-font-weight: bold; -fx-font-size: 18px;">
+            <VBox.margin>
+               <Insets bottom="20.0" />
+            </VBox.margin>
+         </Button>
+         
+
+      </VBox>
+   </children>
+   
+   <style>
+      .button:hover {
+          -fx-background-color: #2C3E50 !important;
+      }
+   </style>
+</AnchorPane> 

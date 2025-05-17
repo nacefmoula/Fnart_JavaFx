@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.image.*?>
+
+<?import java.net.URL?>
+<VBox alignment="CENTER" spacing="20" style="-fx-background-color: white; -fx-padding: 30;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.VerificationCodeController">
+    <children>
+        <!-- Icon Container -->
+        <StackPane styleClass="icon-container" style="-fx-background-color: #f5f5f5; -fx-background-radius: 50%;">
+            <ImageView fitHeight="40" fitWidth="40" preserveRatio="true">
+                <Image url="@/assets/user-verify.png"/>
+            </ImageView>
+            <padding>
+                <Insets />
+            </padding>
+        </StackPane>
+
+        <Text styleClass="title" text="Enter Verification Code" style="-fx-font-size: 24; -fx-font-weight: bold;"/>
+
+        <Text fx:id="emailText" styleClass="subtitle" text="We've sent a code to your email" style="-fx-font-size: 14; -fx-fill: #666;"/>
+
+        <!-- Code Input Container -->
+        <HBox alignment="CENTER" spacing="10">
+            <TextField fx:id="code1" styleClass="code-input" maxWidth="50" alignment="CENTER"/>
+            <TextField fx:id="code2" styleClass="code-input" maxWidth="50" alignment="CENTER"/>
+            <TextField fx:id="code3" styleClass="code-input" maxWidth="50" alignment="CENTER"/>
+            <TextField fx:id="code4" styleClass="code-input" maxWidth="50" alignment="CENTER"/>
+        </HBox>
+
+        <Button fx:id="submitButton" text="Submit" styleClass="submit-button" onAction="#handleSubmit"
+                style="-fx-background-color: linear-gradient(to bottom, #334342,#6F4D38, #331B19); -fx-text-fill: white; -fx-min-width: 200; -fx-min-height: 40; -fx-background-radius: 5;"/>
+
+        <HBox alignment="CENTER" spacing="5">
+            <Text text="Experiencing issues receiving the code?" style="-fx-fill: #666;"/>
+            <Hyperlink text="Resend code" onAction="#handleResendCode"/>
+        </HBox>
+    </children>
+
+    <stylesheets>
+        <URL value="@styles.css"/>
+    </stylesheets>
+</VBox>

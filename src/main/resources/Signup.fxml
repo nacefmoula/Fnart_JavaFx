@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="680.0" prefWidth="900.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.SignUpController">
+    <children>
+        <!-- Left side panel with image -->
+        <AnchorPane prefHeight="680.0" prefWidth="350.0"   style="-fx-background-color: #947268;">
+            <children>
+                <ImageView fitHeight="680.0" fitWidth="350.0" pickOnBounds="true" preserveRatio="false">
+                    <image>
+                        <Image url="@assets/paintingofawoman.jpeg" />
+                    </image>
+                </ImageView>
+                <!-- Overlay with semi-transparent background for better text readability -->
+                <AnchorPane  opacity="0.5" prefHeight="680.0" prefWidth="350.0" style="-fx-background-color: #947268;" />
+                <VBox alignment="CENTER" layoutX="25.0" layoutY="140.0" prefHeight="400.0" prefWidth="300.0">
+                    <children>
+                        <Label text="Bienvenue" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="36.0" />
+                            </font>
+                        </Label>
+                        <Label text="Un clic pour que la magie opère" textFill="WHITE">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                            <VBox.margin>
+                                <Insets top="10.0" />
+                            </VBox.margin>
+                        </Label>
+                        <Separator prefWidth="200.0" style="-fx-background-color: white;">
+                            <VBox.margin>
+                                <Insets bottom="20.0" top="20.0" />
+                            </VBox.margin>
+                        </Separator>
+                        <Label text="Déjà membre?" textFill="WHITE">
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                        </Label>
+                        <Hyperlink fx:id="loginLink" text="Connectez-vous ici" textFill="#ffcc00">
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                        </Hyperlink>
+                    </children>
+                </VBox>
+            </children>
+        </AnchorPane>
+
+        <!-- Right side form -->
+        <AnchorPane layoutX="350.0"  prefHeight="680.0" prefWidth="550.0">
+            <children>
+                <VBox alignment="TOP_CENTER" layoutX="25.0" layoutY="20.0" prefHeight="640.0" prefWidth="500.0" spacing="5.0">
+                    <children>
+                        <Label text="Créer un compte" textFill="#310E10">
+                            <font>
+                                <Font name="System Bold" size="28.0" />
+                            </font>
+                            <VBox.margin>
+                                <Insets bottom="20.0" top="10.0" />
+                            </VBox.margin>
+                        </Label>
+
+                        <!-- Profile Image Upload Section -->
+                        <AnchorPane prefHeight="120.0" prefWidth="500.0">
+                            <children>
+                                <Circle fx:id="profileImageCircle" fill="#e0e0e0" layoutX="250.0" layoutY="60.0" radius="60.0" stroke="#310E10" strokeType="INSIDE" strokeWidth="2.0" />
+                                <ImageView fx:id="profileImageView" fitHeight="110.0" fitWidth="110.0" layoutX="195.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" />
+                                <Button fx:id="uploadImageButton" layoutX="196.0" layoutY="130.0" mnemonicParsing="false" styleClass="outline-button" text="Choisir une photo" onAction="#handleImageSelection" />
+                            </children>
+                        </AnchorPane>
+
+                        <!-- Google Sign Up Button -->
+                        <Button fx:id="googleSignUpButton" alignment="CENTER" contentDisplay="LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="300.0" style="-fx-background-color: white; -fx-border-color: #DDDDDD; -fx-border-radius: 5; -fx-background-radius: 5;" text="S'inscrire avec Google">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                            <graphic>
+                                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@assets/google_logo.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                            <VBox.margin>
+                                <Insets bottom="10.0" top="5.0" />
+                            </VBox.margin>
+                        </Button>
+
+                        <!-- Separator with "ou" text -->
+                        <HBox alignment="CENTER" prefWidth="500.0">
+                            <children>
+                                <Separator prefWidth="200.0" />
+                                <Label text="ou" textFill="#6c757d">
+                                    <HBox.margin>
+                                        <Insets left="10.0" right="10.0" />
+                                    </HBox.margin>
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </Label>
+                                <Separator prefWidth="200.0" />
+                            </children>
+                            <VBox.margin>
+                                <Insets bottom="10.0" top="5.0" />
+                            </VBox.margin>
+                        </HBox>
+
+                        <HBox alignment="CENTER" spacing="20.0">
+                            <children>
+                                <VBox prefHeight="64.0" prefWidth="240.0">
+                                    <children>
+                                        <Label text="Nom &amp; Prénom">
+                                            <font>
+                                                <Font size="13.0" />
+                                            </font>
+                                        </Label>
+                                        <TextField fx:id="nameTF" prefHeight="40.0" promptText="Entrez votre nom complet" styleClass="modern-field" />
+                                    </children>
+                                </VBox>
+                                <VBox prefHeight="64.0" prefWidth="240.0">
+                                    <children>
+                                        <Label text="Téléphone">
+                                            <font>
+                                                <Font size="13.0" />
+                                            </font>
+                                        </Label>
+                                        <TextField fx:id="PhoneField" prefHeight="40.0" promptText="Entrez votre numéro" styleClass="modern-field" />
+                                    </children>
+                                </VBox>
+                            </children>
+                            <VBox.margin>
+                                <Insets top="10.0" />
+                            </VBox.margin>
+                        </HBox>
+
+                        <VBox prefHeight="64.0" prefWidth="500.0">
+                            <children>
+                                <Label text="Email">
+                                    <font>
+                                        <Font size="13.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="emailTF" prefHeight="40.0" promptText="Entrez votre adresse email" styleClass="modern-field" />
+                            </children>
+                        </VBox>
+
+                        <HBox alignment="CENTER" spacing="20.0">
+                            <children>
+                                <VBox prefHeight="64.0" prefWidth="240.0">
+                                    <children>
+                                        <Label text="Mot de passe">
+                                            <font>
+                                                <Font size="13.0" />
+                                            </font>
+                                        </Label>
+                                        <PasswordField fx:id="PasswordField" prefHeight="40.0" promptText="Entrez votre mot de passe" styleClass="modern-field" />
+                                    </children>
+                                </VBox>
+                                <VBox prefHeight="64.0" prefWidth="240.0">
+                                    <children>
+                                        <Label text="Confirmer mot de passe">
+                                            <font>
+                                                <Font size="13.0" />
+                                            </font>
+                                        </Label>
+                                        <PasswordField fx:id="confimPasswordField" prefHeight="40.0" promptText="Confirmez votre mot de passe" styleClass="modern-field" />
+                                    </children>
+                                </VBox>
+                            </children>
+                        </HBox>
+
+                        <HBox alignment="CENTER" spacing="20.0">
+                            <children>
+                                <VBox prefHeight="64.0" prefWidth="240.0">
+                                    <children>
+                                        <Label text="Sexe">
+                                            <font>
+                                                <Font size="13.0" />
+                                            </font>
+                                        </Label>
+                                        <HBox alignment="CENTER_LEFT" prefHeight="40.0" spacing="30.0">
+                                            <children>
+                                                <RadioButton fx:id="femaleRadio" mnemonicParsing="false" styleClass="modern-radio" text="Femme" />
+                                                <RadioButton fx:id="maleRadio" mnemonicParsing="false" styleClass="modern-radio" text="Homme" />
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                </VBox>
+                                <VBox prefHeight="64.0" prefWidth="240.0">
+                                    <children>
+                                        <Label text="Rôle">
+                                            <font>
+                                                <Font size="13.0" />
+                                            </font>
+                                        </Label>
+                                        <ChoiceBox fx:id="RoleComboBox" prefHeight="40.0" prefWidth="240.0" styleClass="modern-choice" />
+                                    </children>
+                                </VBox>
+                            </children>
+                        </HBox>
+
+                        <Label fx:id="statusLabel" text="" textFill="red" />
+
+                        <Button fx:id="SignupButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #310E10; -fx-text-fill: white; -fx-background-radius: 25;" text="S'inscrire" onAction="#handleSignUp">
+                            <font>
+                                <Font name="System Bold" size="16.0" />
+                            </font>
+                            <VBox.margin>
+                                <Insets top="20.0" />
+                            </VBox.margin>
+                        </Button>
+                    </children>
+                </VBox>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>

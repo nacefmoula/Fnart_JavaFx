@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.text.Text?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.web.WebView?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+             fx:controller="tn.esprit.controllers.AjouterAtelierController"
+             stylesheets="@styles.css" style="-fx-background-color: -fx-workshop-background;">
+    <children>
+        <VBox styleClass="workshop-form-container" spacing="15" AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+            <VBox styleClass="workshop-form-container" spacing="20" AnchorPane.topAnchor="10" AnchorPane.bottomAnchor="80" AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="10">
+                <!-- Top Header with Icon -->
+                <HBox alignment="CENTER" styleClass="workshop-header">
+                    <padding>
+                        <Insets top="20" right="20" bottom="20" left="20" />
+                    </padding>
+
+                    <Label text="Créer un nouvel atelier" styleClass="workshop-header-label">
+                        <HBox.margin>
+                            <Insets left="15" />
+                        </HBox.margin>
+                    </Label>
+                </HBox>
+                
+                <!-- Main Content Card with the new styling -->
+                <VBox styleClass="workshop-content-card" VBox.vgrow="ALWAYS">
+                    <padding>
+                        <Insets top="25" right="30" bottom="25" left="30" />
+                    </padding>
+                    
+                    <Label text="Informations de l'atelier" styleClass="workshop-section-title" />
+                    <Separator styleClass="workshop-separator">
+                        <VBox.margin>
+                            <Insets top="10" bottom="25" />
+                        </VBox.margin>
+                    </Separator>
+                    
+                    <GridPane hgap="25" vgap="20">
+                        <columnConstraints>
+                            <ColumnConstraints percentWidth="30" />
+                            <ColumnConstraints percentWidth="70" />
+                        </columnConstraints>
+                        
+                        <!-- Title Field -->
+                        <Label text="Titre:" GridPane.columnIndex="0" GridPane.rowIndex="0" styleClass="workshop-form-label" />
+                        <TextField fx:id="titreField" promptText="Titre de l'atelier" GridPane.columnIndex="1" GridPane.rowIndex="0" 
+                                 styleClass="workshop-form-field" />
+    
+                        <!-- Location Field with Map Toggle -->
+                        <Label text="Lieu:" GridPane.columnIndex="0" GridPane.rowIndex="1" styleClass="workshop-form-label" />
+                        <HBox spacing="15" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                            <TextField fx:id="lieuField" promptText="Lieu de l'atelier" HBox.hgrow="ALWAYS" 
+                                     styleClass="workshop-form-field" />
+                            <Button fx:id="toggleMapButton" text="📍 Carte" styleClass="workshop-button-secondary" onAction="#toggleMapView" />
+                        </HBox>
+    
+                        <!-- Map View Container -->
+                        <VBox fx:id="mapContainer" visible="false" managed="false" 
+                              GridPane.columnIndex="0" GridPane.rowIndex="2" GridPane.columnSpan="2" 
+                              styleClass="workshop-map-container" spacing="10" VBox.vgrow="ALWAYS">
+                            <padding>
+                                <Insets top="5" right="5" bottom="5" left="5" />
+                            </padding>
+                            <!-- WebView with improved dimensions for better Leaflet map display -->
+                            <WebView fx:id="mapWebView" VBox.vgrow="ALWAYS" prefHeight="450" prefWidth="800" />
+                            <HBox alignment="CENTER_RIGHT" spacing="10">
+                                <Label fx:id="coordinatesLabel" text="Aucun lieu sélectionné" HBox.hgrow="ALWAYS" 
+                                     styleClass="workshop-coordinates-label" />
+                                <Button text="Confirmer lieu" onAction="#confirmLocation" styleClass="workshop-button">
+                                    <graphic>
+                                        <Text text="✓" />
+                                    </graphic>
+                                </Button>
+                            </HBox>
+                        </VBox>
+    
+                        <!-- Date Field -->
+                        <Label text="Date:" GridPane.columnIndex="0" GridPane.rowIndex="3" styleClass="workshop-form-label" />
+                        <DatePicker fx:id="datePicker" promptText="Sélectionnez une date" GridPane.columnIndex="1" GridPane.rowIndex="3" 
+                                  styleClass="workshop-date-picker" />
+    
+                        <!-- Max Participants Field -->
+                        <Label text="Participants max:" GridPane.columnIndex="0" GridPane.rowIndex="4" styleClass="workshop-form-label" />
+                        <TextField fx:id="participantMaxField" promptText="Nombre maximum de participants" GridPane.columnIndex="1" GridPane.rowIndex="4" 
+                                 styleClass="workshop-form-field" />
+    
+                        <!-- Description Field -->
+                        <Label text="Description:" GridPane.columnIndex="0" GridPane.rowIndex="5" styleClass="workshop-form-label" GridPane.valignment="TOP">
+                            <GridPane.margin>
+                                <Insets top="10" />
+                            </GridPane.margin>
+                        </Label>
+                        <TextArea fx:id="descriptionArea" promptText="Description détaillée de l'atelier" prefRowCount="6" 
+                                  GridPane.columnIndex="1" GridPane.rowIndex="5" wrapText="true"
+                                  styleClass="workshop-form-field" />
+    
+                        <!-- Image Field -->
+                        <Label text="Image:" GridPane.columnIndex="0" GridPane.rowIndex="6" styleClass="workshop-form-label" />
+                        <HBox spacing="15" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                            <TextField fx:id="imageField" promptText="Chemin ou URL de l'image" HBox.hgrow="ALWAYS" 
+                                     styleClass="workshop-form-field" />
+                            <Button text="Parcourir" onAction="#handleUploadImage" styleClass="workshop-file-button">
+                                <graphic>
+                                    <Text text="📁" />
+                                </graphic>
+                            </Button>
+                        </HBox>
+                    </GridPane>
+                    
+                    <!-- Preview Image -->
+                    <VBox alignment="CENTER" VBox.vgrow="ALWAYS" prefHeight="250">
+                        <padding>
+                            <Insets top="30" />
+                        </padding>
+                        <ImageView fx:id="previewImage" fitHeight="200" fitWidth="300" preserveRatio="true" 
+                                   visible="true" managed="true" styleClass="workshop-image-preview">
+<!--                            <Image url="@images/placeholder.png" />-->
+                        </ImageView>
+                    </VBox>
+                </VBox>
+            </VBox>
+        </VBox>
+        
+        <!-- Button Bar -->
+        <HBox spacing="20" alignment="CENTER_RIGHT" styleClass="workshop-buttons-container" AnchorPane.bottomAnchor="10" AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="10">
+            <padding>
+                <Insets top="15" right="20" bottom="15" left="20" />
+            </padding>
+            <HBox styleClass="workshop-footer-button-container" alignment="CENTER_RIGHT">
+                <Button text="Ajouter" onAction="#handleAjouter" styleClass="workshop-button">
+                    <graphic>
+                        <Text text="✓" />
+                    </graphic>
+                </Button>
+                <Button text="Réinitialiser" styleClass="workshop-button-accent" onAction="#resetForm">
+                    <graphic>
+                        <Text text="↺" />
+                    </graphic>
+                </Button>
+                <Button text="Retour" onAction="#goBack" styleClass="workshop-button-outline">
+                    <graphic>
+                        <Text text="←" />
+                    </graphic>
+                </Button>
+                <Button text="Valider" onAction="#handleValidate" styleClass="workshop-button">
+                    <graphic>
+                        <Text text="✔" />
+                    </graphic>
+                </Button>
+            </HBox>
+        </HBox>
+    </children>
+</AnchorPane>

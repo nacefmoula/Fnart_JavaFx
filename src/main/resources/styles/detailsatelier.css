@@ -1,0 +1,384 @@
+/* Styles de base pour l'ensemble de la page détails */
+.main-container {
+    -fx-background-color: #f8f9fa;
+    -fx-font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+/* Bannière de retour en haut de page */
+.back-banner {
+    -fx-background-color: white;
+    -fx-padding: 12px 25px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 4, 0, 0, 2);
+}
+
+.back-nav-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #a47148;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 8px 12px;
+    -fx-cursor: hand;
+    -fx-background-radius: 5px;
+}
+
+.back-nav-button:hover {
+    -fx-background-color: #f0e4d9;
+}
+
+/* ScrollPane personnalisé */
+.details-scroll-pane {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+    -fx-border-width: 0;
+    -fx-padding: 0;
+}
+
+.details-scroll-pane > .viewport {
+    -fx-background-color: #f8f9fa;
+}
+
+/* Conteneur principal des détails */
+.details-container {
+    -fx-padding: 30px 60px 60px 60px;
+    -fx-spacing: 30px;
+}
+
+/* Section d'en-tête avec image et infos principales */
+.header-container {
+    -fx-padding: 30px;
+    -fx-background-color: white;
+    -fx-background-radius: 15px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 3);
+}
+
+/* Conteneur d'image principale */
+.main-image-container {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 12, 0, 0, 4);
+    -fx-background-radius: 10px;
+}
+
+.image-clip {
+    -fx-arc-width: 20;
+    -fx-arc-height: 20;
+    -fx-fill: white;
+}
+
+.main-image {
+    -fx-background-radius: 10px;
+}
+
+/* Badge de statut */
+.status-badge-container {
+    -fx-padding: 15px 15px 0 0;
+}
+
+.event-status {
+    -fx-background-color: #5e60ce;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+    -fx-padding: 5px 15px;
+    -fx-background-radius: 20px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 2);
+}
+
+/* Informations essentielles */
+.essential-info {
+    -fx-padding: 10px 0 0 0;
+}
+
+.workshop-title {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-fill: #333333;
+    -fx-line-spacing: 1.2;
+}
+
+.info-row {
+    -fx-alignment: center-left;
+}
+
+.info-icon {
+    -fx-font-size: 16px;
+}
+
+.info-value {
+    -fx-font-size: 16px;
+    -fx-fill: #555555;
+}
+
+.info-label {
+    -fx-font-size: 16px;
+    -fx-fill: #777777;
+}
+
+/* Boutons d'action */
+.action-buttons {
+    -fx-padding: 15px 0;
+    -fx-alignment: center-left;
+}
+
+.inscription-button {
+    -fx-background-color: #a47148;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 10px 20px;
+    -fx-background-radius: 30px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 8, 0, 0, 2);
+}
+
+.inscription-button:hover {
+    -fx-background-color: #8d5f3d;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 12, 0, 0, 3);
+    -fx-scale-x: 1.03;
+    -fx-scale-y: 1.03;
+}
+
+.download-button {
+    -fx-background-color: #5e60ce;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 10px 20px;
+    -fx-background-radius: 30px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 8, 0, 0, 2);
+}
+
+.download-button:hover {
+    -fx-background-color: #4849aa;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 12, 0, 0, 3);
+    -fx-scale-x: 1.03;
+    -fx-scale-y: 1.03;
+}
+
+/* QR Code */
+.qr-container {
+    -fx-padding: 20px 0 0 0;
+}
+
+.qr-title {
+    -fx-font-size: 14px;
+    -fx-text-fill: #777777;
+    -fx-padding: 0 0 10px 0;
+}
+
+.qr-code {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 8, 0, 0, 2);
+    -fx-border-color: #eeeeee;
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px;
+}
+
+/* Section description */
+.description-section {
+    -fx-padding: 30px;
+    -fx-background-color: white;
+    -fx-background-radius: 15px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 3);
+}
+
+.section-title {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+}
+
+.section-separator {
+    -fx-padding: 10px 0;
+    -fx-opacity: 0.6;
+}
+
+.description-text {
+    -fx-font-size: 16px;
+    -fx-fill: #555555;
+    -fx-line-spacing: 1.5;
+    -fx-padding: 10px 0;
+}
+
+/* Informations complémentaires */
+.additional-info-container {
+    -fx-padding: 0;
+}
+
+.info-box {
+    -fx-padding: 25px;
+    -fx-background-color: white;
+    -fx-background-radius: 15px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 3);
+}
+
+.box-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+    -fx-padding: 0 0 15px 0;
+}
+
+/* Matériels */
+.material-list {
+    -fx-spacing: 12px;
+}
+
+.material-item {
+    -fx-spacing: 10px;
+    -fx-alignment: center-left;
+}
+
+.check-icon {
+    -fx-text-fill: #5e60ce;
+    -fx-font-weight: bold;
+}
+
+.material-name {
+    -fx-font-size: 15px;
+    -fx-text-fill: #555555;
+}
+
+/* Avantages */
+.benefits-list {
+    -fx-spacing: 12px;
+}
+
+.benefit-item {
+    -fx-spacing: 10px;
+    -fx-alignment: center-left;
+}
+
+.benefit-icon {
+    -fx-font-size: 16px;
+}
+
+.benefit-text {
+    -fx-font-size: 15px;
+    -fx-text-fill: #555555;
+}
+
+/* Section localisation */
+.location-section {
+    -fx-padding: 30px;
+    -fx-background-color: white;
+    -fx-background-radius: 15px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 3);
+}
+
+.map-container {
+    -fx-padding: 20px 0 0 0;
+    -fx-alignment: center;
+}
+
+.map-placeholder {
+    -fx-fill: #f0f0f0;
+    -fx-arc-width: 10;
+    -fx-arc-height: 10;
+    -fx-stroke: #dddddd;
+    -fx-stroke-width: 1;
+}
+
+.map-label {
+    -fx-font-size: 18px;
+    -fx-text-fill: #999999;
+    -fx-font-style: italic;
+}
+
+/* Témoignages */
+.testimonials-section {
+    -fx-padding: 30px;
+    -fx-background-color: white;
+    -fx-background-radius: 15px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 3);
+}
+
+.testimonials-container {
+    -fx-padding: 20px 0 0 0;
+}
+
+.testimonial-card {
+    -fx-padding: 25px;
+    -fx-background-color: #f8f4f0;
+    -fx-background-radius: 15px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 5, 0, 0, 2);
+    -fx-min-width: 350px;
+    -fx-max-width: 450px;
+}
+
+.testimonial-text {
+    -fx-font-size: 16px;
+    -fx-text-fill: #555555;
+    -fx-font-style: italic;
+}
+
+.testimonial-author {
+    -fx-padding: 15px 0 0 0;
+    -fx-alignment: center-right;
+}
+
+.author-name {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #a47148;
+}
+
+/* Footer avec boutons d'action */
+.footer-container {
+    -fx-padding: 20px 0 10px 0;
+}
+
+.footer-buttons {
+    -fx-padding: 10px;
+}
+
+/* Bouton principal d'appel à l'action */
+.cta-button {
+    -fx-background-color: #a47148;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 16px;
+    -fx-padding: 12px 30px;
+    -fx-background-radius: 30px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 10, 0, 0, 3);
+}
+
+.cta-button:hover {
+    -fx-background-color: #8d5f3d;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 15, 0, 0, 4);
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+/* Bouton de partage */
+.share-button {
+    -fx-background-color: #5e60ce;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 12px 30px;
+    -fx-background-radius: 30px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 8, 0, 0, 2);
+}
+
+.share-button:hover {
+    -fx-background-color: #4849aa;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 12, 0, 0, 3);
+    -fx-scale-x: 1.03;
+    -fx-scale-y: 1.03;
+}
+
+/* Bouton fermer */
+.close-button {
+    -fx-background-color: #f0f0f0;
+    -fx-text-fill: #777777;
+    -fx-font-weight: bold;
+    -fx-padding: 12px 30px;
+    -fx-background-radius: 30px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 2);
+}
+
+.close-button:hover {
+    -fx-background-color: #e0e0e0;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 8, 0, 0, 3);
+    -fx-scale-x: 1.03;
+    -fx-scale-y: 1.03;
+}

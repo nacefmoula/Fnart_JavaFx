@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.FlowPane?>
+
+<AnchorPane fx:id="MainAnchorPaneBaladity" prefHeight="600.0" prefWidth="900.0" stylesheets="@styles/forum-style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.AfficherForumController">
+   <children>
+      <HBox layoutX="10.0" layoutY="10.0" spacing="10.0">
+    <TextField fx:id="RechercherActualiteAdmin" promptText="Rechercher..." prefWidth="200.0" />
+    <ComboBox fx:id="categoryFilterComboBox" promptText="Filtrer par catégorie..." prefWidth="150.0" />
+    <Button fx:id="sortActualiteAdmin" mnemonicParsing="false" onAction="#sortActualiteAdmin" text="Trier par Date" />
+    <Button fx:id="exportExcelButton" mnemonicParsing="false" onAction="#exportToExcel" text="Exporter Excel" />
+    <Button fx:id="exportPdfButton" mnemonicParsing="false" onAction="#exportToPdf" text="Exporter PDF" />
+</HBox>
+
+<ScrollPane fx:id="scrollAdmin" layoutX="10.0" layoutY="50.0" prefHeight="400.0" prefWidth="860.0">
+    <content>
+        <FlowPane fx:id="forumFlowPane" hgap="20" vgap="20" alignment="TOP_CENTER" styleClass="masonry-grid" />
+    </content>
+</ScrollPane>
+
+<HBox layoutX="10.0" layoutY="470.0" spacing="10.0">
+    <Button fx:id="btnAddForum" mnemonicParsing="false" text="Ajouter" onAction="#addForum" />
+    <Button fx:id="btnUpdateForum" mnemonicParsing="false" text="Modifier" onAction="#updateForum" />
+    <Button fx:id="btnDeleteForum" mnemonicParsing="false" text="Supprimer" onAction="#deleteForum" />
+</HBox>
+   </children>
+</AnchorPane>

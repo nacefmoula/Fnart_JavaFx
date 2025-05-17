@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.GridPane?>
+
+<BorderPane prefHeight="700.0" prefWidth="900.0" stylesheets="@styles/forum-style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.AfficherAtelierController">
+    <center>
+        <VBox spacing="15.0" styleClass="container form-container" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+            </padding>
+
+            <TabPane tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+                <tabs>
+                    <Tab text="Liste des Ateliers">
+                        <content>
+                            <AnchorPane prefHeight="600.0" prefWidth="800.0">
+                                <VBox alignment="CENTER" spacing="20" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+                                    <!-- Enhanced Filter Section -->
+                                    <HBox alignment="CENTER_LEFT" spacing="15" styleClass="filter-section">
+                                        <Label text="Filtres:" styleClass="filter-section-label"/>
+                                        
+                                        <!-- Date Range Filter -->
+                                        <HBox alignment="CENTER" spacing="5" styleClass="date-filter">
+                                            <Label text="Du:" />
+                                            <DatePicker fx:id="fromDatePicker" promptText="Date début" />
+                                            <Label text="au:" />
+                                            <DatePicker fx:id="toDatePicker" promptText="Date fin" />
+                                            <Button text="Filtrer" onAction="#applyDateFilter" styleClass="add-forum-button"/>
+                                        </HBox>
+                                        
+                                        <!-- Additional Filter Options -->
+                                        <MenuBar prefHeight="36.0" prefWidth="80.0">
+                                            <Menu text="Plus de filtres">
+                                                <MenuItem onAction="#filterByParticipants" text="Par participants" />
+                                                <MenuItem onAction="#resetFilters" text="Réinitialiser" />
+                                            </Menu>
+                                        </MenuBar>
+                                        
+                                        <Region HBox.hgrow="ALWAYS" />
+                                        
+                                        <!-- Sorting Options -->
+                                        <Label text="Trier par:" />
+                                        <ChoiceBox fx:id="sortOrderChoice" prefWidth="150" />
+                                    </HBox>
+                                    
+                                    <!-- Workshops List - Enhanced Card View -->
+                                    <Label text="Liste des Ateliers" styleClass="section-title form-title">
+                                        <font>
+                                            <Font name="System Bold" size="16.0" />
+                                        </font>
+                                    </Label>
+                                    
+                                    <ScrollPane fitToWidth="true" styleClass="workshop-scroll-pane" VBox.vgrow="ALWAYS" prefHeight="450.0">
+                                        <content>
+                                            <ListView fx:id="workshopsListView" styleClass="workshops-list-view forum-list" VBox.vgrow="ALWAYS" prefHeight="440.0" minHeight="400.0">
+                                                <!-- Workshop items will be displayed as modern cards dynamically -->
+                                            </ListView>
+                                        </content>
+                                    </ScrollPane>
+                                    
+                                    <!-- Enhanced Pagination Controls -->
+                                    <HBox alignment="CENTER" spacing="20" styleClass="pagination-controls">
+                                        <Button fx:id="prevPageButton" text="⬅ Précédent" onAction="#prevPage" styleClass="button page-nav-button" prefWidth="120" />
+                                        <Label fx:id="pageInfoLabel" text="Page 1 sur 1" styleClass="page-info" />
+                                        <Button fx:id="nextPageButton" text="Suivant ➡" onAction="#nextPage" styleClass="button page-nav-button" prefWidth="120" />
+                                        <ComboBox fx:id="pageSizeComboBox" prefWidth="120" promptText="10 par page" />
+                                    </HBox>
+                                    
+                                    <!-- Updated Action Buttons -->
+                                    <HBox alignment="CENTER" spacing="30">
+                                        <Button text="Ajouter" onAction="#ajouterAtelier" styleClass="button action-button add-forum-button forum-action-button" />
+                                        <Button text="Modifier" onAction="#modifierAtelier" styleClass="button action-button add-forum-button forum-action-button" />
+                                        <Button text="Supprimer" onAction="#supprimerAtelier" styleClass="button action-button add-forum-button forum-action-button" />
+                                    </HBox>
+                                    
+                                    <!-- Search Field -->
+                                    <HBox alignment="CENTER" spacing="10">
+                                        <TextField fx:id="searchField" prefWidth="250.0" promptText="Rechercher un atelier..." styleClass="form-input" />
+                                        <Button mnemonicParsing="false" onAction="#refreshTable" text="Rechercher" styleClass="button action-button add-forum-button forum-action-button" prefWidth="150" />
+                                    </HBox>
+                                </VBox>
+                            </AnchorPane>
+                        </content>
+                    </Tab>
+                    <Tab text="Statistiques">
+                        <content>
+                            <AnchorPane prefHeight="600.0" prefWidth="800.0">
+                                <VBox alignment="TOP_CENTER" spacing="20" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+                                    <Label styleClass="title" text="Statistiques des Ateliers" />
+                                    
+                                    <HBox alignment="CENTER" spacing="20">
+                                        <VBox alignment="CENTER" spacing="10">
+                                            <Label styleClass="section-title" text="Aperçu des Ateliers" />
+                                            <FlowPane hgap="10" prefWrapLength="400" vgap="10">
+                                                <VBox styleClass="stat-box">
+                                                    <Label styleClass="stat-label" text="Total Ateliers" />
+                                                    <Label fx:id="totalAteliersLabel" styleClass="stat-value" text="0" />
+                                                </VBox>
+                                                <VBox styleClass="stat-box">
+                                                    <Label styleClass="stat-label" text="Total Participants" />
+                                                    <Label fx:id="totalParticipantsLabel" styleClass="stat-value" text="0" />
+                                                </VBox>
+                                                <VBox styleClass="stat-box">
+                                                    <Label styleClass="stat-label" text="Ateliers ce mois" />
+                                                    <Label fx:id="ateliersMoisLabel" styleClass="stat-value" text="0" />
+                                                </VBox>
+                                                <VBox styleClass="stat-box">
+                                                    <Label styleClass="stat-label" text="Taux de participation" />
+                                                    <Label fx:id="tauxParticipationLabel" styleClass="stat-value" text="0%" />
+                                                </VBox>
+                                            </FlowPane>
+                                        </VBox>
+                                        <PieChart fx:id="detailedStatsChart" title="Répartition par catégorie" />
+                                    </HBox>
+                                    
+                                    <HBox alignment="CENTER" spacing="20">
+                                        <VBox alignment="CENTER" spacing="10">
+                                            <Label styleClass="section-title" text="Performance des Ateliers" />
+                                            <FlowPane hgap="10" prefWrapLength="400" vgap="10">
+                                                <VBox styleClass="stat-box">
+                                                    <Label styleClass="stat-label" text="Atelier le plus populaire" />
+                                                    <Label fx:id="atelierPopulaireLabel" styleClass="stat-value" text="-" />
+                                                </VBox>
+                                                <VBox styleClass="stat-box">
+                                                    <Label styleClass="stat-label" text="Moyenne des participants" />
+                                                    <Label fx:id="moyenneParticipantsLabel" styleClass="stat-value" text="0" />
+                                                </VBox>
+                                                <VBox styleClass="stat-box">
+                                                    <Label styleClass="stat-label" text="Jour le plus populaire" />
+                                                    <Label fx:id="jourPopulaireLabel" styleClass="stat-value" text="-" />
+                                                </VBox>
+                                                <VBox styleClass="stat-box">
+                                                    <Label styleClass="stat-label" text="Lieu le plus fréquent" />
+                                                    <Label fx:id="lieuFrequentLabel" styleClass="stat-value" text="-" />
+                                                </VBox>
+                                            </FlowPane>
+                                        </VBox>
+                                    </HBox>
+                                    
+                                    <Button text="Générer Rapport" styleClass="button" />
+                                </VBox>
+                            </AnchorPane>
+                        </content>
+                    </Tab>
+                </tabs>
+            </TabPane>
+        </VBox>
+    </center>
+
+    <!-- Profile Panel -->
+    <AnchorPane fx:id="profilePanel" managed="false" styleClass="profile-panel" visible="false" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0" />
+</BorderPane>

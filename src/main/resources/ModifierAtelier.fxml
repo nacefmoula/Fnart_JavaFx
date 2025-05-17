@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.text.Text?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.web.WebView?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+             fx:controller="tn.esprit.controllers.ModifierAtelierController"
+             stylesheets="@styles.css" style="-fx-background-color: -fx-workshop-background;">
+    <children>
+        <VBox styleClass="workshop-form-container" spacing="25" AnchorPane.topAnchor="10" AnchorPane.bottomAnchor="10" AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="10">
+            <!-- Header Section -->
+            <HBox alignment="CENTER" styleClass="workshop-header">
+                <padding>
+                    <Insets top="20" right="20" bottom="20" left="20" />
+                </padding>
+
+                <Label text="Modifier l'atelier" styleClass="workshop-header-label">
+                    <HBox.margin>
+                        <Insets left="15" />
+                    </HBox.margin>
+                </Label>
+            </HBox>
+
+            <!-- Form Section -->
+            <GridPane hgap="20" vgap="15" styleClass="workshop-form-grid">
+                <columnConstraints>
+                    <ColumnConstraints percentWidth="30" />
+                    <ColumnConstraints percentWidth="70" />
+                </columnConstraints>
+
+                <Label text="Titre:" GridPane.columnIndex="0" GridPane.rowIndex="0" styleClass="workshop-form-label" />
+                <TextField fx:id="titreField" promptText="Titre de l'atelier" GridPane.columnIndex="1" GridPane.rowIndex="0" styleClass="workshop-form-field" />
+
+                <Label text="Lieu:" GridPane.columnIndex="0" GridPane.rowIndex="1" styleClass="workshop-form-label" />
+                <TextField fx:id="lieuField" promptText="Lieu de l'atelier" GridPane.columnIndex="1" GridPane.rowIndex="1" styleClass="workshop-form-field" />
+
+                <Label text="Date:" GridPane.columnIndex="0" GridPane.rowIndex="2" styleClass="workshop-form-label" />
+                <DatePicker fx:id="datePicker" promptText="Sélectionnez une date" GridPane.columnIndex="1" GridPane.rowIndex="2" styleClass="workshop-date-picker" />
+
+                <Label text="Participants max:" GridPane.columnIndex="0" GridPane.rowIndex="3" styleClass="workshop-form-label" />
+                <TextField fx:id="participantMaxField" promptText="Nombre maximum de participants" GridPane.columnIndex="1" GridPane.rowIndex="3" styleClass="workshop-form-field" />
+
+                <Label text="Description:" GridPane.columnIndex="0" GridPane.rowIndex="4" styleClass="workshop-form-label" />
+                <TextArea fx:id="descriptionArea" promptText="Description détaillée de l'atelier" GridPane.columnIndex="1" GridPane.rowIndex="4" wrapText="true" styleClass="workshop-form-field" />
+
+                <Label text="Image:" GridPane.columnIndex="0" GridPane.rowIndex="5" styleClass="workshop-form-label" />
+                <HBox spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                    <TextField fx:id="imageField" promptText="Chemin ou URL de l'image" HBox.hgrow="ALWAYS" styleClass="workshop-form-field" />
+                    <Button text="Parcourir" onAction="#handleUploadImage" styleClass="workshop-file-button" />
+                    <Button text="Modifier" onAction="#handleModifier" styleClass="workshop-button" />
+                    <Button text="Réinitialiser" onAction="#resetForm" styleClass="workshop-button-accent" />
+                    <Button text="Retour" onAction="#goBack" styleClass="workshop-button-outline" />
+
+                </HBox>
+            </GridPane>
+
+            <!-- Preview Section -->
+            <VBox alignment="CENTER" spacing="10">
+                <ImageView fx:id="previewImage" fitHeight="200" fitWidth="300" preserveRatio="true" styleClass="workshop-image-preview" />
+                <Label fx:id="coordinatesLabel" text="Aucun lieu sélectionné" styleClass="workshop-coordinates-label" />
+            </VBox>
+
+            <!-- Button Section -->
+
+        </VBox>
+    </children>
+</AnchorPane>

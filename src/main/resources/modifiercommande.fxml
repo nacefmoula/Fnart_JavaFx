@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.modifiercommandeController">
+   <children>
+      <TextField fx:id="artwork_idTextField" layoutX="226.0" layoutY="50.0" />
+      <TextField fx:id="nomTextField" layoutX="226.0" layoutY="100.0" />
+      <TextField fx:id="adressTextField" layoutX="226.0" layoutY="150.0" />
+      <TextField fx:id="telephoneTextField" layoutX="226.0" layoutY="200.0" />
+      <TextField fx:id="emailTextField" layoutX="226.0" layoutY="250.0" />
+      <TextField fx:id="totaleTextField" layoutX="226.0" layoutY="300.0" />
+      <DatePicker fx:id="dateDatePicker" layoutX="226.0" layoutY="250.0" />
+      <Label layoutX="150.0" layoutY="54.0" text="ID Artwork:" />
+      <Label layoutX="150.0" layoutY="104.0" text="Nom:" />
+      <Label layoutX="150.0" layoutY="154.0" text="Adresse:" />
+      <Label layoutX="150.0" layoutY="204.0" text="Téléphone:" />
+      <Label layoutX="150.0" layoutY="254.0" text="Email:" />
+      <Label layoutX="150.0" layoutY="304.0" text="Total:" />
+      <Button fx:id="btnSave" layoutX="266.0" layoutY="350.0" mnemonicParsing="false" onAction="#updateCommande" text="Modifier" />
+      <Text layoutX="217.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Modifier la Commande" />
+   </children>
+</AnchorPane>

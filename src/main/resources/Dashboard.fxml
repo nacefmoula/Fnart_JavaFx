@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+<?import java.net.URL?>
+<?import javafx.scene.text.Text?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+
+<VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="tn.esprit.controllers.DashboardController"
+      styleClass="root">
+
+    <!-- Top Navigation Bar -->
+    <HBox styleClass="top-bar" alignment="CENTER" spacing="2">
+        <!-- Logo -->
+        <Label text="ArtTherapy" styleClass="logo"/>
+
+        <!-- Search Bar -->
+        <HBox styleClass="search-bar-container" alignment="CENTER" spacing="2">
+            <FontAwesomeIconView glyphName="SEARCH" styleClass="search-icon" size="1.2em"/>
+            <TextField fx:id="searchField" promptText="Rechercher des œuvres d'art..."
+                       styleClass="search-field" HBox.hgrow="ALWAYS"  />
+        </HBox>
+
+        <!-- Navigation Items -->
+        <ScrollPane fitToHeight="false" fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="NEVER" styleClass="nav-scroll-pane" style="-fx-background-color: transparent; -fx-background: transparent;" HBox.hgrow="ALWAYS">
+            <padding>
+                <Insets left="40" />
+            </padding>
+            <content>
+                <HBox spacing="20" alignment="CENTER" style="-fx-background-color: transparent;" maxWidth="Infinity">
+                    <Button text="Accueil" styleClass="nav-button" onAction="#handleAccueil">
+                        <graphic>
+                            <FontAwesomeIconView glyphName="HOME" styleClass="nav-icon" size="1.2em"/>
+                        </graphic>
+                    </Button>
+                    <Button fx:id="atelierButton" text="Atelier" styleClass="nav-button" onAction="#handleAtelier">
+                        <graphic>
+                            <FontAwesomeIconView glyphName="PAINT_BRUSH" styleClass="nav-icon" size="1.2em"/>
+                        </graphic>
+                    </Button>
+                    <Button text="Devenir beneficiaire" styleClass="nav-button" onAction="#handleAddBeneficiaire">
+                        <graphic>
+                            <FontAwesomeIconView glyphName="GIFT" styleClass="nav-icon" size="1.2em"/>
+                        </graphic>
+                    </Button>
+                    <Button text="Faire un don" styleClass="nav-button" onAction="#handleAddDons">
+                        <graphic>
+                            <FontAwesomeIconView glyphName="GIFT" styleClass="nav-icon" size="1.2em"/>
+                        </graphic>
+                    </Button>
+                    <Button text="Forum" styleClass="nav-button" onAction="#handleForum">
+                        <graphic>
+                            <FontAwesomeIconView glyphName="COMMENTS" styleClass="nav-icon" size="1.2em"/>
+                        </graphic>
+                    </Button>
+                    <Button text="gallery" styleClass="nav-button" onAction="#handlegallery">
+                        <graphic>
+                            <FontAwesomeIconView glyphName="COMMENTS" styleClass="nav-icon" size="1.2em" />
+                        </graphic>
+                    </Button>
+                    <StackPane fx:id="cartIconContainer">
+                        <Button text="Panier" styleClass="nav-button" onAction="#handleCart">
+                            <graphic>
+                                <FontAwesomeIconView glyphName="SHOPPING_CART" styleClass="nav-icon" size="1.2em"/>
+                            </graphic>
+                        </Button>
+                        <Label fx:id="cartBadge" text="3" styleClass="cart-badge" visible="true"/>
+                    </StackPane>
+                    <Button text="Se connecter" styleClass="action-button"/>
+                </HBox>
+            </content>
+        </ScrollPane>
+
+        <!-- Profile Section -->
+        <HBox alignment="CENTER" spacing="8">
+            <ImageView fx:id="profileImage" fitWidth="40" fitHeight="40" pickOnBounds="true" preserveRatio="true" styleClass="profile-image"/>
+            <Button text="Accounts" styleClass="accounts-menu" onMouseClicked="#showAccountsMenu" />
+        </HBox>
+    </HBox>
+
+    <!-- Main Content Area -->
+    <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS" styleClass="main-scroll-pane">
+        <TilePane fx:id="artworkGrid" styleClass="masonry-grid" hgap="16" vgap="17" prefColumns="4">
+            <!-- Example Artwork Tile -->
+            <StackPane>
+                <ImageView fx:id="artworkImage" fitWidth="200" fitHeight="200" preserveRatio="true"/>
+            </StackPane>
+        </TilePane>
+    </ScrollPane>
+
+    <stylesheets>
+        <URL value="@css/pinterest-style.css"/>
+    </stylesheets>
+</VBox>

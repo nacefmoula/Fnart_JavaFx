@@ -1,0 +1,198 @@
+/* Variables globales */
+* {
+    -fx-primary-color: #a259ff;
+    -fx-secondary-color: #4CAF50;
+    -fx-light-grey: #f8f9fa;
+    -fx-dark-grey: #343a40;
+}
+
+.cart-container {
+    -fx-background-color: white;
+    -fx-background-radius: 20;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 20, 0, 0, 0);
+    -fx-min-width: 400;
+    -fx-max-width: 800;
+    -fx-min-height: 500;
+    -fx-padding: 25;
+}
+
+.cart-header {
+    -fx-padding: 0 0 20 0;
+    -fx-border-color: transparent transparent -fx-light-grey transparent;
+    -fx-border-width: 0 0 2 0;
+}
+
+.cart-title {
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -fx-dark-grey;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 2, 0, 0, 1);
+}
+
+.cart-scroll {
+    -fx-background-color: transparent;
+    -fx-min-height: 300;
+}
+
+.cart-scroll > .viewport {
+    -fx-background-color: transparent;
+}
+
+.cart-items {
+    -fx-padding: 20;
+    -fx-spacing: 15;
+}
+
+.cart-item {
+    -fx-background-color: white;
+    -fx-background-radius: 15;
+    -fx-padding: 20;
+    -fx-spacing: 15;
+    -fx-alignment: center-left;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 10, 0, 0, 0);
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+    -fx-transition: all 0.3s ease;
+}
+
+.cart-item:hover {
+    -fx-effect: dropshadow(gaussian, rgba(162,89,255,0.1), 15, 0, 0, 0);
+    -fx-translate-y: -2;
+    -fx-background-color: linear-gradient(to right, white, #fafafa);
+}
+
+.cart-item Label {
+    -fx-font-size: 14px;
+    -fx-text-fill: -fx-dark-grey;
+}
+
+.cart-item .title-label {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-min-width: 250;
+    -fx-text-fill: -fx-dark-grey;
+}
+
+.cart-item .price-label {
+    -fx-text-fill: -fx-primary-color;
+    -fx-font-weight: bold;
+    -fx-min-width: 120;
+    -fx-font-size: 16px;
+}
+
+.cart-item .remove-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #ff5757;
+    -fx-font-size: 20px;
+    -fx-cursor: hand;
+    -fx-padding: 8 12;
+    -fx-background-radius: 50%;
+    -fx-border-radius: 50%;
+    -fx-transition: all 0.2s ease;
+}
+
+.cart-item .remove-button:hover {
+    -fx-background-color: #fff0f0;
+    -fx-text-fill: #ff4242;
+    -fx-rotate: 90;
+}
+
+.cart-footer {
+    -fx-padding: 20 0;
+    -fx-border-color: -fx-light-grey transparent transparent transparent;
+    -fx-border-width: 2 0 0 0;
+}
+
+.total-label {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -fx-primary-color;
+}
+
+/* Boutons principaux */
+.button {
+    -fx-background-radius: 25;
+    -fx-min-height: 45;
+    -fx-padding: 0 30;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-transition: all 0.2s ease;
+}
+
+#continueButton {
+    -fx-background-color: -fx-light-grey;
+    -fx-text-fill: -fx-dark-grey;
+}
+
+#continueButton:hover {
+    -fx-background-color: derive(-fx-light-grey, -5%);
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 8, 0, 0, 0);
+}
+
+#orderButton {
+    -fx-background-color: -fx-primary-color;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, rgba(162,89,255,0.3), 8, 0, 0, 0);
+}
+
+#orderButton:hover {
+    -fx-background-color: derive(-fx-primary-color, 10%);
+    -fx-effect: dropshadow(gaussian, rgba(162,89,255,0.4), 12, 0, 0, 0);
+    -fx-translate-y: -2;
+}
+
+/* Spinner de quantité */
+.quantity-spinner {
+    -fx-pref-width: 100px;
+    -fx-background-color: white;
+    -fx-border-color: -fx-light-grey;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+}
+
+.quantity-spinner .increment-arrow-button,
+.quantity-spinner .decrement-arrow-button {
+    -fx-background-color: -fx-light-grey;
+    -fx-background-radius: 4;
+}
+
+.quantity-spinner .increment-arrow-button:hover,
+.quantity-spinner .decrement-arrow-button:hover {
+    -fx-background-color: derive(-fx-light-grey, -5%);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { -fx-opacity: 0; }
+    to { -fx-opacity: 1; }
+}
+
+.cart-item {
+    -fx-animation: fadeIn 0.5s ease;
+}
+
+/* Scrollbar styling */
+.scroll-bar:vertical {
+    -fx-background-color: transparent;
+    -fx-pref-width: 10;
+}
+
+.scroll-bar:vertical .thumb {
+    -fx-background-color: derive(-fx-primary-color, 80%);
+    -fx-background-radius: 5;
+}
+
+.scroll-bar:vertical .thumb:hover {
+    -fx-background-color: derive(-fx-primary-color, 60%);
+}
+
+.scroll-bar:vertical .track {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar:vertical .increment-button,
+.scroll-bar:vertical .decrement-button {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}

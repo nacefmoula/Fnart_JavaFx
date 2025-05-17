@@ -1,0 +1,210 @@
+/* Variables globales et thème */
+* {
+    -fx-primary: #a259ff;
+    -fx-primary-light: #d4b6ff;
+    -fx-primary-dark: #7b2fff;
+    -fx-secondary: #4CAF50;
+    -fx-grey-color: #F5F5F5;
+    -fx-focus-color: -fx-primary;
+}
+
+/* Style du conteneur principal */
+.cart-container {
+    -fx-background-color: white;
+    -fx-background-radius: 25;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 20, 0, 0, 0);
+    -fx-padding: 30;
+}
+
+/* En-tête du panier */
+.cart-header {
+    -fx-padding: 0 0 25 0;
+    -fx-border-color: transparent transparent derive(-fx-primary, 80%) transparent;
+    -fx-border-width: 0 0 2 0;
+}
+
+.cart-title {
+    -fx-font-size: 36px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -fx-primary;
+    -fx-effect: dropshadow(gaussian, rgba(162,89,255,0.2), 4, 0, 0, 1);
+}
+
+/* Style des articles */
+.cart-item {
+    -fx-background-color: white;
+    -fx-background-radius: 20;
+    -fx-padding: 25;
+    -fx-spacing: 20;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 10, 0, 0, 0);
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+    -fx-transition: all 0.3s ease;
+}
+
+.cart-item:hover {
+    -fx-effect: dropshadow(gaussian, rgba(162,89,255,0.15), 15, 0, 0, 0);
+    -fx-translate-y: -2;
+    -fx-background-color: linear-gradient(to right, white, derive(-fx-primary-light, 30%));
+}
+
+/* Images des articles */
+.cart-item ImageView {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 0);
+    -fx-background-radius: 15;
+}
+
+/* Textes et labels */
+.title-label {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+}
+
+.desc-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #7f8c8d;
+}
+
+.price-label {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -fx-primary;
+}
+
+/* Spinner de quantité */
+.quantity-spinner {
+    -fx-background-color: white;
+    -fx-border-color: derive(-fx-primary, 70%);
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-pref-width: 120px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 5, 0, 0, 0);
+}
+
+.quantity-spinner .increment-arrow-button,
+.quantity-spinner .decrement-arrow-button {
+    -fx-background-color: derive(-fx-primary, 90%);
+    -fx-background-radius: 5;
+}
+
+.quantity-spinner .increment-arrow-button:hover,
+.quantity-spinner .decrement-arrow-button:hover {
+    -fx-background-color: derive(-fx-primary, 70%);
+}
+
+/* Bouton de suppression */
+.remove-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #e74c3c;
+    -fx-font-size: 22px;
+    -fx-background-radius: 50%;
+    -fx-min-width: 40px;
+    -fx-min-height: 40px;
+    -fx-transition: all 0.2s ease;
+}
+
+.remove-button:hover {
+    -fx-background-color: #ffebee;
+    -fx-rotate: 90;
+    -fx-effect: dropshadow(gaussian, rgba(231,76,60,0.2), 10, 0, 0, 0);
+}
+
+/* Total et footer */
+.cart-footer {
+    -fx-padding: 30 0 0 0;
+    -fx-border-color: derive(-fx-primary, 80%) transparent transparent transparent;
+    -fx-border-width: 2 0 0 0;
+}
+
+.total-section {
+    -fx-padding: 20;
+    -fx-background-color: derive(-fx-primary, 95%);
+    -fx-background-radius: 15;
+}
+
+.total-label {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -fx-primary-dark;
+}
+
+/* Boutons d'action */
+.action-button {
+    -fx-background-radius: 25;
+    -fx-min-height: 50;
+    -fx-min-width: 200;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-transition: all 0.2s ease;
+}
+
+#continueButton {
+    -fx-background-color: -fx-grey-color;
+    -fx-text-fill: #2c3e50;
+}
+
+#continueButton:hover {
+    -fx-background-color: derive(-fx-grey-color, -5%);
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 8, 0, 0, 0);
+    -fx-translate-y: -1;
+}
+
+#orderButton {
+    -fx-background-color: linear-gradient(to right, -fx-primary, -fx-primary-dark);
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, rgba(162,89,255,0.3), 8, 0, 0, 0);
+}
+
+#orderButton:hover {
+    -fx-background-color: linear-gradient(to right, derive(-fx-primary, 10%), derive(-fx-primary-dark, 10%));
+    -fx-effect: dropshadow(gaussian, rgba(162,89,255,0.4), 12, 0, 0, 0);
+    -fx-translate-y: -2;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { -fx-opacity: 0; }
+    to { -fx-opacity: 1; }
+}
+
+.cart-item {
+    -fx-animation: fadeIn 0.5s ease;
+}
+
+/* Scrollbar personnalisée */
+.scroll-bar:vertical {
+    -fx-background-color: transparent;
+    -fx-pref-width: 12;
+}
+
+.scroll-bar:vertical .thumb {
+    -fx-background-color: derive(-fx-primary, 80%);
+    -fx-background-radius: 6;
+}
+
+.scroll-bar:vertical .thumb:hover {
+    -fx-background-color: derive(-fx-primary, 60%);
+}
+
+.scroll-bar:vertical .track {
+    -fx-background-color: transparent;
+}
+
+/* Style pour le message panier vide */
+.empty-cart-message {
+    -fx-font-size: 20px;
+    -fx-text-fill: #95a5a6;
+    -fx-font-weight: bold;
+    -fx-padding: 50;
+    -fx-alignment: center;
+}
+
+/* Effet de focus sur les éléments interactifs */
+.button:focused,
+.spinner:focused {
+    -fx-effect: dropshadow(gaussian, rgba(162,89,255,0.4), 10, 0, 0, 0);
+    -fx-border-color: -fx-primary;
+    -fx-border-width: 0;
+} 

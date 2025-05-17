@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Localisation de l'Atelier</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
+    <style>
+        body { margin: 0; padding: 0; }
+        #map { position: absolute; top: 0; bottom: 0; width: 100%; }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <script>
+    // Ce script sera modifié dynamiquement par JavaFX pour insérer le token et les coordonnées
+    var mapboxToken = 'YOUR_MAPBOX_TOKEN_PLACEHOLDER';
+    var longitude = 0;
+    var latitude = 0;
+    var atelierTitle = 'Atelier';
+    
+    mapboxgl.accessToken = mapboxToken;
+    const map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v12',
+        center: [longitude, latitude],
+        zoom: 14
+    });
+    
+    // Ajouter un marqueur pour la position de l'atelier
+    new mapboxgl.Marker()
+        .setLngLat([longitude, latitude])
+        .setPopup(new mapboxgl.Popup().setHTML("<h3>" + atelierTitle + "</h3>"))
+        .addTo(map);
+        
+    // Ajouter des contrôles de navigation
+    map.addControl(new mapboxgl.NavigationControl(), 'top-right');
+    </script>
+</body>
+</html>

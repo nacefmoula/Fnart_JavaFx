@@ -1,0 +1,343 @@
+/* Ajouts CSS pour le formulaire - à ajouter à la fin de votre fichier CSS existant */
+
+/* Conteneur du formulaire */
+.form-container {
+    -fx-background-color: white;
+    -fx-background-radius: 24px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 15, 0, 0, 4);
+    -fx-padding: 30px;
+}
+
+/* Titre du formulaire */
+.form-title {
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #e60023;
+    -fx-effect: dropshadow(gaussian, rgba(230,0,35,0.2), 5, 0, 0, 1);
+    -fx-padding: 0 0 20px 0;
+}
+
+/* Labels du formulaire */
+.form-label {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+}
+
+/* Champs texte du formulaire */
+.form-field {
+    -fx-background-color: #f5f5f5;
+    -fx-background-radius: 12px;
+    -fx-border-radius: 12px;
+    -fx-border-width: 1px;
+    -fx-border-color: #eeeeee;
+    -fx-padding: 12px;
+    -fx-font-size: 14px;
+    -fx-effect: innershadow(gaussian, rgba(0,0,0,0.05), 2, 0, 0, 1);
+}
+
+.form-field:focused {
+    -fx-background-color: white;
+    -fx-border-color: #e60023;
+    -fx-effect: innershadow(gaussian, rgba(230,0,35,0.1), 2, 0, 0, 0);
+}
+
+/* Zone de texte du formulaire */
+.form-textarea {
+    -fx-background-color: #f5f5f5;
+    -fx-background-radius: 12px;
+    -fx-border-radius: 12px;
+    -fx-border-width: 1px;
+    -fx-border-color: #eeeeee;
+    -fx-padding: 12px;
+    -fx-font-size: 14px;
+}
+
+.form-textarea:focused {
+    -fx-background-color: white;
+    -fx-border-color: #e60023;
+}
+
+/* Menu déroulant du formulaire */
+.form-dropdown {
+    -fx-background-color: #f5f5f5;
+    -fx-background-radius: 12px;
+    -fx-border-radius: 12px;
+    -fx-border-width: 1px;
+    -fx-border-color: #eeeeee;
+    -fx-padding: 8px;
+    -fx-font-size: 14px;
+}
+
+.form-dropdown .arrow {
+    -fx-background-color: #e60023;
+}
+
+/* Conteneur d'image */
+.image-container {
+    -fx-background-color: #f5f5f5;
+    -fx-background-radius: 12px;
+    -fx-border-radius: 12px;
+    -fx-border-width: 1px;
+    -fx-border-color: #eeeeee;
+    -fx-padding: 10px;
+}
+
+.image-preview {
+    -fx-background-radius: 8px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 3, 0, 0, 1);
+}
+
+/* Conteneur des boutons */
+.buttons-container {
+    -fx-spacing: 15px;
+    -fx-padding: 20px 0 10px 0;
+}
+
+/* Animation de transition */
+.form-field, .form-dropdown, .action-button, .secondary-button, .back-button {
+    -fx-transition: all 0.2s ease-in-out;
+}
+
+/* Style pour les messages d'erreur */
+.error-message {
+    -fx-text-fill: #e60023;
+    -fx-font-size: 12px;
+    -fx-font-style: italic;
+}
+
+/* Updated CSS to match the desired navigation and search bar style */
+
+.nav-scroll-pane {
+    -fx-background: transparent;
+    background: transparent;
+    -fx-background-color: transparent;
+    background-color: transparent;
+    -fx-border-color: transparent;
+    border-color: transparent;
+    -fx-border-width: 0;
+    border-width: 0;
+    -fx-padding: 0 10px; /* Ajuste le padding du conteneur */
+    padding: 0 10px;
+    -fx-background-insets: 0;
+    -fx-effect: none;
+    -fx-fit-to-width: true;
+    -fx-hbar-policy: never;
+    -fx-vbar-policy: never;
+    -fx-min-width: 100%;
+    min-width: 100%;
+    -fx-spacing: 5px; /* Réduit l'espacement entre les boutons */
+    spacing: 5px;
+}
+
+.nav-scroll-pane > .viewport {
+    -fx-background-color: transparent;
+    background-color: transparent;
+    -fx-border-color: transparent;
+    border-color: transparent;
+    -fx-alignment: center-right;
+}
+
+.nav-scroll-pane > .scroll-bar {
+    -fx-background-color: transparent;
+    background-color: transparent;
+    -fx-border-color: transparent;
+    border-color: transparent;
+    visibility: hidden;
+}
+
+.nav-button {
+    -fx-background-color: transparent;
+    background-color: transparent;
+    -fx-border-color: transparent;
+    border-color: transparent;
+    -fx-text-fill: #111111;
+    color: #111111;
+    -fx-font-weight: bold;
+    font-weight: bold;
+    -fx-padding: 8px 10px; /* Réduit le padding horizontal de 16px à 10px */
+    padding: 8px 10px;
+    -fx-background-radius: 0;
+    border-radius: 0;
+    -fx-border-radius: 0;
+    border-radius: 0;
+    -fx-alignment: center;
+    -fx-min-width: -1; /* Permet au bouton de s'adapter à la taille du texte */
+    min-width: -1;
+    -fx-max-width: 1000; /* Permet un texte plus long */
+    max-width: 1000;
+}
+
+.nav-button:hover {
+    -fx-background-color: #f0f0f0;
+    background-color: #f0f0f0;
+    -fx-background-radius: 24px;
+    border-radius: 24px;
+}
+
+.search-bar-container {
+    -fx-background-color: #f5f5f5;
+    background-color: #f5f5f5;
+    -fx-background-radius: 24px;
+    border-radius: 24px;
+    -fx-padding: 8px 16px;
+    padding: 8px 16px;
+    -fx-spacing: 10px;
+    -fx-min-width: 300px;
+    min-width: 300px;
+    -fx-max-width: 300px;
+    max-width: 300px;
+    -fx-alignment: center;
+}
+
+.search-bar-container:hover, .search-bar-container:focused-within {
+    -fx-background-color: #f5f5f5;
+    background-color: #f5f5f5;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 4, 0, 0, 2);
+}
+
+.search-field {
+    -fx-background-color: transparent;
+    background-color: transparent;
+    -fx-text-fill: #333333;
+    color: #333333;
+    -fx-prompt-text-fill: #999999;
+    -fx-font-size: 14px;
+    font-size: 14px;
+    -fx-padding: 0;
+    padding: 0;
+    -fx-border-color: transparent;
+    border-color: transparent;
+}
+
+.search-icon {
+    -fx-fill: #666666;
+    fill: #666666;
+    -fx-opacity: 0.8;
+    opacity: 0.8;
+}
+
+.top-bar {
+    -fx-background-color: transparent;
+    background-color: transparent;
+    -fx-background: transparent;
+    background: transparent;
+    -fx-padding: 15px 30px;
+    padding: 15px 30px;
+    -fx-spacing: 24px;
+    -fx-border-width: 0;
+    border-width: 0;
+    -fx-effect: none;
+}
+
+.top-bar:hover, .top-bar:focused {
+    -fx-background-color: transparent !important;
+    background-color: transparent !important;
+}
+
+.profile-image {
+    -fx-background-radius: 50%;
+    border-radius: 50%;
+    -fx-border-radius: 50%;
+    -fx-effect: dropshadow(gaussian, #00000033, 4, 0, 0, 2);
+    -fx-border-color: #310E10;
+    border-color: #310E10;
+    -fx-border-width: 2;
+    border-width: 2px;
+    -fx-cursor: hand;
+    cursor: pointer;
+}
+
+.accounts-menu {
+    -fx-background-radius: 20;
+    border-radius: 20px;
+    -fx-background-color: #fff;
+    background-color: #fff;
+    -fx-effect: dropshadow(gaussian, #ccc, 4, 0, 0, 2);
+    -fx-font-weight: bold;
+    font-weight: bold;
+}
+
+.pin-card {
+    -fx-min-height: 200;
+    min-height: 200px;
+    -fx-pref-height: -1;
+    -fx-max-height: 400;
+    max-height: 400px;
+}
+
+.root {
+    -fx-background-color: transparent;
+    background-color: transparent;
+}
+
+VBox {
+    -fx-background-color: transparent;
+    background-color: transparent;
+}
+
+HBox {
+    -fx-background-color: transparent;
+    background-color: transparent;
+}
+
+/* Ajout des styles plus stricts pour garantir la transparence de la barre de navigation */
+
+.top-bar, .top-bar * {
+    -fx-background-color: transparent !important;
+    background-color: transparent !important;
+    -fx-padding: 15px 30px;
+    padding: 15px 30px;
+    -fx-spacing: 24px;
+    -fx-alignment: center;
+    -fx-border-width: 0 !important;
+    border-width: 0 !important;
+    -fx-border-color: transparent !important;
+    border-color: transparent !important;
+    -fx-effect: none !important;
+}
+
+.top-bar:hover, .top-bar:focused, .top-bar:pressed {
+    -fx-background-color: transparent !important;
+    background-color: transparent !important;
+}
+
+/* Force transparency on all HBox and VBox containers */
+.root HBox, .root VBox {
+    -fx-background-color: transparent !important;
+    background-color: transparent !important;
+    -fx-background: transparent !important;
+    background: transparent !important;
+}
+
+/* Style spécifique pour les conteneurs de navigation */
+.navigation-container {
+    -fx-background-color: transparent !important;
+    background-color: transparent !important;
+    -fx-background: transparent !important;
+    background: transparent !important;
+}
+
+/* Ensure buttons don't show background on interaction */
+.nav-button:pressed, .nav-button:focused {
+    -fx-background-color: transparent !important;
+    background-color: transparent !important;
+}
+
+/* Only show hover effect when actually hovering */
+.nav-button:hover {
+    -fx-background-color: rgba(240, 240, 240, 0.5) !important;
+    background-color: rgba(240, 240, 240, 0.5) !important;
+    -fx-background-radius: 24px;
+    border-radius: 24px;
+}
+
+/* Reset any JavaFX default styles */
+.button, .toggle-button {
+    -fx-background-color: transparent;
+    background-color: transparent;
+    -fx-border-color: transparent;
+    border-color: transparent;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}

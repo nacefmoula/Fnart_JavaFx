@@ -1,0 +1,75 @@
+/* login.css - Matching the styles from signup.css */
+
+* {
+    -fx-font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+/* Color palette inspired by the painting */
+.root {
+    -primary-dark: #6B5235; /* Darker brown */
+    -primary: #8B6E4E;      /* Medium brown from painting */
+    -primary-light: #A98B6A; /* Lighter brown */
+    -accent: #E6CCB2;       /* Skin tone from painting */
+    -bg-light: #F9F5F0;     /* Off-white background */
+    -text-dark: #4A3A25;    /* Very dark brown for text */
+    -text-light: #FFFFFF;   /* White text for dark backgrounds */
+    -error: #C94B4B;        /* Error color */
+    -success: #4A9F58;      /* Success color */
+}
+
+/* Modern form fields */
+.modern-field {
+    -fx-background-color: -text-light;
+    -fx-border-color: -accent;
+    -fx-border-radius: 20;
+    -fx-background-radius: 20;
+    -fx-padding: 8 15;
+    -fx-font-size: 14px;
+}
+
+.modern-field:focused {
+    -fx-border-color: -primary;
+    -fx-border-width: 1.5;
+    -fx-effect: dropshadow(three-pass-box, derive(-accent, 30%), 5, 0, 0, 0);
+}
+
+/* Button styling */
+.outline-button {
+    -fx-background-color: transparent;
+    -fx-border-color: -primary;
+    -fx-border-radius: 20;
+    -fx-text-fill: -primary;
+    -fx-padding: 8 15;
+    -fx-font-size: 13px;
+    -fx-cursor: hand;
+}
+
+.outline-button:hover {
+    -fx-background-color: derive(-primary, 80%);
+}
+
+/* Hyperlink styling */
+.hyperlink {
+    -fx-border-color: transparent;
+    -fx-padding: 4 0 4 0;
+    -fx-text-fill: -accent;
+    -fx-underline: false;
+}
+
+.hyperlink:hover {
+    -fx-underline: true;
+    -fx-text-fill: derive(-accent, -10%);
+}
+
+/* Message styling */
+.error-message {
+    -fx-font-size: 13px;
+    -fx-fill: -error;
+    -fx-font-weight: bold;
+}
+
+.success-message {
+    -fx-font-size: 13px;
+    -fx-fill: -success;
+    -fx-font-weight: bold;
+}

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.AfficherForumController">
+   <children>
+      <AnchorPane fx:id="MainAnchorPaneBaladity" layoutY="14.0" prefHeight="780.0" prefWidth="949.0">
+         <children>
+            <ScrollPane fx:id="scrollAdmin" layoutX="167.0" layoutY="78.0" prefHeight="602.0" prefWidth="907.0" styleClass="transparent" stylesheets="@/styles/style.css">
+               <content>
+                  <GridPane fx:id="gridAdmin" prefHeight="0.0" prefWidth="0.0">
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" />
+                     </rowConstraints>
+                  </GridPane>
+               </content>
+            </ScrollPane>
+            <Text fill="#012545" layoutX="195.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="La listes des Forums" wrappingWidth="349.3366241455078">
+               <font>
+                  <Font name="Arial Bold" size="32.0" />
+               </font>
+            </Text>
+            <TextField fx:id="RechercherActualiteAdmin" layoutX="558.0" layoutY="14.0" onAction="#RechercherActualiteAdmin" prefHeight="36.0" prefWidth="244.0" promptText="Rechercher..." stylesheets="@/styles/style.css" />
+            <Button fx:id="sortActualiteAdmin" layoutX="820.0" layoutY="-3.0" mnemonicParsing="false" onAction="#sortActualiteAdmin" prefHeight="70.0" prefWidth="80.0" style="-fx-background-color: #ffffff;" stylesheets="@/styles/style.css" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="16.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="45.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@/assets/sort.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="buttonreturnA" layoutX="103.0" layoutY="627.0" mnemonicParsing="false" onAction="#buttonreturnA" prefHeight="54.0" prefWidth="79.0" style="-fx-background-color: #FFFFFF;" stylesheets="@/styles/style.css">
+               <graphic>
+                  <ImageView fitHeight="55.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@/assets/left-arrow.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

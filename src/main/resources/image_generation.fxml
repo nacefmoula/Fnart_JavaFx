@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.*?>
+
+<?import java.net.URL?>
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="tn.esprit.controllers.ImageGenerationController">
+
+    <center>
+        <ScrollPane fitToWidth="true" styleClass="custom-scroll-pane" VBox.vgrow="ALWAYS">
+            <VBox styleClass="root" spacing="16">
+                <Label text="Create an image from text prompt" styleClass="title"/>
+                <TextField fx:id="promptField" styleClass="text-field"
+                           promptText="Describe the image you want to generate..."/>
+                <Button fx:id="generateBtn" text="Generate" styleClass="button" id="generateBtn"/>
+                <Label fx:id="errorLabel" style="-fx-text-fill: #ff4444; -fx-font-size: 14px;"/>
+                <Separator styleClass="separator"/>
+                <Label text="Choose a model" styleClass="section-title"/>
+                <HBox spacing="10">
+                    <RadioButton text="Standard" fx:id="standardModel" styleClass="radio-button"/>
+                    <RadioButton text="HD" fx:id="hdModel" styleClass="radio-button"/>
+                    <RadioButton text="Genius" fx:id="geniusModel" styleClass="radio-button" disable="true"/>
+                </HBox>
+                <Label text="Preference" styleClass="section-title"/>
+                <HBox spacing="10">
+                    <RadioButton text="Speed" fx:id="speedPref" styleClass="radio-button"/>
+                    <RadioButton text="Quality" fx:id="qualityPref" styleClass="radio-button"/>
+                </HBox>
+                <CheckBox text="Use Olde Model" fx:id="oldeModelCheck" styleClass="check-box"/>
+                <Label text="Choose a style" styleClass="section-title"/>
+                <HBox spacing="10">
+                    <ImageView fitWidth="48" fitHeight="48" styleClass="image-style" fx:id="style1"/>
+                    <ImageView fitWidth="48" fitHeight="48" styleClass="image-style" fx:id="style2"/>
+                    <ImageView fitWidth="48" fitHeight="48" styleClass="image-style" fx:id="style3"/>
+                    <Button text="View all +100 styles" styleClass="transparent-button"/>
+                </HBox>
+                <VBox alignment="CENTER" spacing="10" style="-fx-padding: 20;">
+                    <StackPane alignment="CENTER">
+                        <ImageView fx:id="resultImageView" fitWidth="512" preserveRatio="true" styleClass="image-style"/>
+                        <ProgressIndicator fx:id="loadingIndicator" visible="false"/>
+                    </StackPane>
+                    <Label fx:id="promptDisplayLabel" style="-fx-text-fill: #888; -fx-font-size: 14px;"/>
+                    <Button fx:id="downloadBtn" text="Télécharger" styleClass="button" style="-fx-background-color: #2196F3;"/>
+                </VBox>
+            </VBox>
+        </ScrollPane>
+    </center>
+    <stylesheets>
+        <URL value="@styles/image_generation.css"/>
+    </stylesheets>
+</BorderPane>

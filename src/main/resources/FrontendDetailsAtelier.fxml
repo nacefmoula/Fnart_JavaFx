@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.shape.Rectangle?>
+<?import java.net.URL?>
+<?import javafx.scene.web.WebView?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" 
+           fx:controller="tn.esprit.controllers.FrontendDetailsAtelierController"
+           styleClass="main-container">
+
+    <!-- Bannière de retour -->
+    <HBox AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0"
+          styleClass="back-banner">
+
+    </HBox>
+
+    <ScrollPane AnchorPane.topAnchor="60" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0"
+                fitToWidth="true" styleClass="details-scroll-pane">
+        <VBox styleClass="details-container" spacing="30">
+            
+            <!-- En-tête avec image principale et informations clés -->
+            <HBox styleClass="header-container" spacing="30">
+                <!-- Image principale avec effet d'ombre -->
+                <StackPane styleClass="main-image-container">
+                    <Rectangle width="400" height="300" styleClass="image-clip"/>
+                    <ImageView fx:id="imageView" fitWidth="400" fitHeight="300" 
+                              preserveRatio="true" styleClass="main-image"/>
+                    
+                    <!-- Badge de statut -->
+                    <HBox StackPane.alignment="TOP_RIGHT" styleClass="status-badge-container">
+                        <Label text="À venir" styleClass="event-status"/>
+                    </HBox>
+                </StackPane>
+                
+                <!-- Informations essentielles -->
+                <VBox styleClass="essential-info" spacing="15">
+                    <Text fx:id="titreLabel" styleClass="workshop-title" wrappingWidth="350"/>
+                    
+                    <HBox styleClass="info-row" spacing="10">
+                        <Label text="📍" styleClass="info-icon"/>
+                        <Text fx:id="lieuLabel" styleClass="info-value" wrappingWidth="300"/>
+                    </HBox>
+                    
+                    <HBox styleClass="info-row" spacing="10">
+                        <Label text="📅" styleClass="info-icon"/>
+                        <Text fx:id="dateLabel" styleClass="info-value"/>
+                    </HBox>
+                    
+                    <HBox styleClass="info-row" spacing="10">
+                        <Label text="👥" styleClass="info-icon"/>
+                        <Text fx:id="placesLabel" styleClass="info-value"/>
+                        <Text text=" participants max" styleClass="info-label"/>
+                    </HBox>
+                    
+                    <!-- Boutons d'action -->
+                    <HBox styleClass="action-buttons" spacing="15">
+                        <Button text="S'inscrire" styleClass="inscription-button" 
+                                onAction="#handleInscription"/>
+                        <Button text="Télécharger PDF" styleClass="download-button" 
+                                onAction="#downloadPdf"/>
+                    </HBox>
+                    
+                    <!-- QR Code -->
+                    <VBox styleClass="qr-container" alignment="CENTER">
+                        <Label text="Scanner le QR Code pour partager" styleClass="qr-title"/>
+                        <ImageView fx:id="qrCodeImageView" fitWidth="120" fitHeight="120" 
+                                  preserveRatio="true" styleClass="qr-code"/>
+                    </VBox>
+                </VBox>
+            </HBox>
+            
+            <!-- Description complète -->
+            <VBox styleClass="description-section">
+                <Label text="À propos de cet atelier" styleClass="section-title"/>
+                <Separator styleClass="section-separator"/>
+                <Text fx:id="descriptionLabel" styleClass="description-text" wrappingWidth="850"/>
+            </VBox>
+            
+            <!-- Informations complémentaires -->
+            <HBox styleClass="additional-info-container" spacing="30">
+                <!-- Matériel requis -->
+                <VBox styleClass="info-box" HBox.hgrow="ALWAYS">
+                    <Label text="Matériel requis" styleClass="box-title"/>
+                    <VBox styleClass="material-list">
+                        <HBox styleClass="material-item">
+                            <Label text="✓" styleClass="check-icon"/>
+                            <Label text="Tablier de protection" styleClass="material-name"/>
+                        </HBox>
+                        <HBox styleClass="material-item">
+                            <Label text="✓" styleClass="check-icon"/>
+                            <Label text="Pinceau personnel" styleClass="material-name"/>
+                        </HBox>
+                        <HBox styleClass="material-item">
+                            <Label text="✓" styleClass="check-icon"/>
+                            <Label text="Carnet de croquis" styleClass="material-name"/>
+                        </HBox>
+                    </VBox>
+                </VBox>
+                
+                <!-- Avantages de l'atelier -->
+                <VBox styleClass="info-box" HBox.hgrow="ALWAYS">
+                    <Label text="Avantages" styleClass="box-title"/>
+                    <VBox styleClass="benefits-list">
+                        <HBox styleClass="benefit-item">
+                            <Label text="🎨" styleClass="benefit-icon"/>
+                            <Label text="Développez votre créativité" styleClass="benefit-text"/>
+                        </HBox>
+                        <HBox styleClass="benefit-item">
+                            <Label text="🧠" styleClass="benefit-icon"/>
+                            <Label text="Réduisez votre stress" styleClass="benefit-text"/>
+                        </HBox>
+                        <HBox styleClass="benefit-item">
+                            <Label text="👥" styleClass="benefit-icon"/>
+                            <Label text="Rencontrez d'autres passionnés" styleClass="benefit-text"/>
+                        </HBox>
+                    </VBox>
+                </VBox>
+            </HBox>
+            
+            <!-- Carte de localisation avec WebView pour Leaflet -->
+            <VBox styleClass="location-section">
+                <Label text="Lieu de l'atelier" styleClass="section-title"/>
+                <Separator styleClass="section-separator"/>
+                <StackPane styleClass="map-container">
+                    <WebView fx:id="mapWebView" prefWidth="850" prefHeight="450"/>
+                </StackPane>
+            </VBox>
+            
+            <!-- Témoignages -->
+            <VBox styleClass="testimonials-section">
+                <Label text="Témoignages des participants" styleClass="section-title"/>
+                <Separator styleClass="section-separator"/>
+                <HBox styleClass="testimonials-container" spacing="20">
+                    <!-- Témoignage 1 -->
+                    <VBox styleClass="testimonial-card">
+                        <Label text="&quot;Une expérience incroyable qui m'a permis de découvrir des facettes de ma créativité que j'ignorais.&quot;" 
+                               styleClass="testimonial-text" wrapText="true"/>
+                        <HBox styleClass="testimonial-author">
+                            <Label text="Sophie M." styleClass="author-name"/>
+                        </HBox>
+                    </VBox>
+                    <!-- Témoignage 2 -->
+                    <VBox styleClass="testimonial-card">
+                        <Label text="&quot;J'ai adoré l'ambiance et le professionnalisme de l'animateur. Je recommande vivement cet atelier !&quot;" 
+                               styleClass="testimonial-text" wrapText="true"/>
+                        <HBox styleClass="testimonial-author">
+                            <Label text="Thomas L." styleClass="author-name"/>
+                        </HBox>
+                    </VBox>
+                </HBox>
+            </VBox>
+            
+            <!-- Footer avec boutons d'action -->
+            <VBox styleClass="footer-container">
+                <HBox alignment="CENTER" spacing="20" styleClass="footer-buttons">
+                    <Button text="S'inscrire maintenant" styleClass="cta-button" onAction="#handleInscription"/>
+                    <Button text="Partager" styleClass="share-button" onAction="#handleShare"/>
+                    <Button text="Fermer" styleClass="close-button" onAction="#closeDetails"/>
+                </HBox>
+            </VBox>
+        </VBox>
+    </ScrollPane>
+    
+    <stylesheets>
+        <URL value="@styles/detailsatelier.css"/>
+    </stylesheets>
+</AnchorPane>

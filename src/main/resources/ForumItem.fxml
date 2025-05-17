@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.layout.HBox?>
+
+<?import javafx.geometry.Insets?>
+<AnchorPane fx:id="forumItemPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="320.0" prefWidth="300.0" styleClass="forum-card" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.ForumItemController">
+   <children>
+      <VBox alignment="TOP_CENTER" spacing="10.0" styleClass="forum-item-container">
+         <children>
+            <ImageView fx:id="forumImageView" fitHeight="120.0" fitWidth="280.0" pickOnBounds="true" preserveRatio="true" styleClass="forum-image">
+               <image>
+                  <Image url="@/assets/default-forum.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="titleLabel" styleClass="forum-title" text="Titre du forum" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="categoryLabel" styleClass="card-category" text="Catégorie" />
+            <Label fx:id="dateLabel" styleClass="card-date" text="Date" />
+            <Label fx:id="descriptionLabel" styleClass="forum-detail" text="Description" wrapText="true" maxHeight="80.0" />
+            <HBox alignment="CENTER" spacing="10.0">
+               <children>
+                  <Button fx:id="editButton" mnemonicParsing="false" styleClass="modify-button" text="Modifier" />
+                  <Button fx:id="deleteButton" mnemonicParsing="false" styleClass="delete-button" text="Supprimer" />
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+         </padding>
+      </VBox>
+   </children>
+</AnchorPane>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx/20.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.UpdateBeneficiaireController" stylesheets="@../css/style.css">
+   <left>
+      <VBox fx:id="sidebar" styleClass="sidebar" prefWidth="200.0">
+         <Label text="Fnart" styleClass="title"/>
+         <Separator style="-fx-background-color: #4d4d4d;"/>
+         <Label text="🏠 Accueil" styleClass="menu-item" onMouseClicked="#handleHome"/>
+         <Label text="👤 Devenir un bénéficiaire" styleClass="menu-item" onMouseClicked="#handleAddBeneficiaire"/>
+         <Label text="💰 Faire un don" styleClass="menu-item" onMouseClicked="#handleAddDons"/>
+         <Label text="📋 Liste des bénéficiaires" styleClass="menu-item" onMouseClicked="#handleListeBeneficiaire"/>
+         <Label text="📊 Liste des dons" styleClass="menu-item" onMouseClicked="#handleListeDons"/>
+      </VBox>
+   </left>
+   <center>
+      <AnchorPane fx:id="rootPane" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #EFDAC7;">
+         <children>
+            <VBox alignment="TOP_CENTER" prefHeight="600.0" prefWidth="800.0" spacing="20.0">
+               <padding>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </padding>
+               
+               <!-- Title -->
+               <Label text="Modifier Bénéficiaire" styleClass="header">
+                  <VBox.margin>
+                     <Insets bottom="20.0" />
+                  </VBox.margin>
+               </Label>
+               
+               <!-- Form Fields -->
+               <GridPane hgap="10" vgap="10" alignment="CENTER">
+                  <Label text="Nom:" styleClass="sub-header" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                  <TextField fx:id="nomTextField" prefWidth="200.0" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                  
+                  <Label text="Prénom:" styleClass="sub-header" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                  <TextField fx:id="prenomTextField" prefWidth="200.0" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                  
+                  <Label text="Email:" styleClass="sub-header" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                  <TextField fx:id="emailTextField" prefWidth="200.0" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                  
+                  <Label text="Téléphone:" styleClass="sub-header" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                  <TextField fx:id="telephoneTextField" prefWidth="200.0" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                  
+                  <Label text="Adresse:" styleClass="sub-header" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+                  <TextField fx:id="adresseTextField" prefWidth="200.0" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+                  
+                  <Label text="Description:" styleClass="sub-header" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+                  <TextArea fx:id="descriptionTextArea" prefWidth="200.0" prefHeight="100.0" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+                  
+                  <Label text="Image:" styleClass="sub-header" GridPane.columnIndex="0" GridPane.rowIndex="6"/>
+                  <VBox spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                     <ImageView fx:id="imagePreview" fitHeight="150.0" fitWidth="200.0" styleClass="image-preview"/>
+                     <HBox spacing="10" alignment="CENTER">
+                        <Button fx:id="uploadButton" text="Choisir une image" onAction="#handleImageUpload" styleClass="upload-button"/>
+                        <Button fx:id="clearButton" text="Effacer" onAction="#handleClearImage" styleClass="clear-button"/>
+                     </HBox>
+                  </VBox>
+               </GridPane>
+               
+               <!-- Buttons -->
+               <HBox alignment="CENTER" spacing="20.0">
+                  <Button fx:id="updateButton" mnemonicParsing="false" onAction="#handleUpdate" text="Mettre à jour" styleClass="update-button"/>
+                  <Button fx:id="backButton" mnemonicParsing="false" onAction="#handleBack" text="Retour" styleClass="back-button"/>
+               </HBox>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane> 

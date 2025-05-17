@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane fx:id="rootPane" prefHeight="600.0" prefWidth="800.0" stylesheets="css/AdminDashboard.css" xmlns="http://javafx.com/javafx/20.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.AddBeneficiaireBackController">
+   <children>
+      <VBox alignment="TOP_CENTER" prefHeight="600.0" prefWidth="800.0" spacing="20.0">
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+         
+         <!-- Title -->
+         <Label text="Ajouter un Bénéficiaire" >
+            <VBox.margin>
+               <Insets bottom="20.0" />
+            </VBox.margin>
+         </Label>
+         
+         <!-- Form Fields -->
+         <GridPane hgap="10" vgap="10" alignment="CENTER">
+            <columnConstraints>
+                <ColumnConstraints minWidth="100" prefWidth="150" />
+                <ColumnConstraints minWidth="200" prefWidth="300" />
+            </columnConstraints>
+            
+            <Label text="Nom:"  GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+            <TextField fx:id="nomTextField" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+            
+            <Label text="Email:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+            <TextField fx:id="EmailTextField" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+            
+            <Label text="Téléphone:"  GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+            <TextField fx:id="TelephoneTextField" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+            
+            <Label text="Association:"  GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+            <ChoiceBox fx:id="AssociationChoice" prefWidth="200.0"  GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+            
+            <Label text="Cause:"  GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+            <TextField fx:id="CauseTextField" prefWidth="200.0"  GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+            
+            <Label text="Valeur Demandée:" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+            <TextField fx:id="ValeurTextField" prefWidth="200.0"  GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+            
+            <Label text="Description:"  GridPane.columnIndex="0" GridPane.rowIndex="6"/>
+            <TextArea fx:id="DescriptionTextArea" prefWidth="200.0" prefHeight="100.0" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+            
+
+            <Label text="Image:"  GridPane.columnIndex="0" GridPane.rowIndex="8"/>
+            <HBox spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                <Button fx:id="uploadImageButton" text="Choisir une image" onAction="#handleImageUpload" styleClass="forum-btn-alt" ></Button>
+                <Label fx:id="imagePathLabel" style="-fx-text-fill: #ECF0F1;"/>
+            </HBox>
+         </GridPane>
+         
+         <!-- Buttons -->
+         <HBox alignment="CENTER" spacing="20.0">
+            <Button fx:id="AjoutButton" mnemonicParsing="false" onAction="#handleSubmit" text="Ajouter" styleClass="forum-btn" ></Button>
+
+            <Button fx:id="backButton" mnemonicParsing="false" onAction="#handleBack" text="Retour" styleClass="forum-btn-alt" ></Button>
+         </HBox>
+      </VBox>
+   </children>
+   
+   <style>
+      .button:hover {
+          -fx-background-color: #2C3E50 ;
+      }
+   </style>
+</AnchorPane> 

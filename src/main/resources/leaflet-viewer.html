@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Leaflet Map Viewer</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" 
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" 
+          crossorigin=""/>
+    
+    <!-- Leaflet JavaScript -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" 
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" 
+            crossorigin=""></script>
+    
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+        #map {
+            height: 100%;
+            width: 100%;
+            min-height: 450px; /* Augmenter la hauteur minimale */
+            z-index: 1;
+        }
+        .leaflet-container {
+            height: 100%;
+            width: 100%;
+            min-height: 450px;
+        }
+        /* Ajuster la taille des contrôles pour une meilleure lisibilité */
+        .leaflet-control-zoom a {
+            font-size: 18px;
+            line-height: 28px;
+            width: 28px;
+            height: 28px;
+        }
+        /* Meilleure visibilité pour les popups */
+        .leaflet-popup-content {
+            font-size: 14px;
+            font-family: Arial, sans-serif;
+            padding: 5px;
+        }
+        /* Add loading indicator */
+        .map-loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255,255,255,0.8);
+            padding: 10px 20px;
+            border-radius: 4px;
+            z-index: 999;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <div id="loading" class="map-loading">Chargement de la carte...</div>
+
+    <script>
+        var map;
+        var mapInitialized = false;
+        
+        // Initialize the map when document is fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Create map instance
+            map = L.map('map').setView([34.0, 9.0], 7);
+            
+            // Add the OpenStreetMap tiles
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+            
+            // Hide loading indicator
+            document.getElementById('loading').style.display = 'none';
+            
+            // Set flag that map is initialized
+            mapInitialized = true;
+            
+            // Check if we have coordinates waiting to be displayed
+            if (window.pendingLat !== undefined && window.pendingLng !== undefined) {
+                showLocation(window.pendingLat, window.pendingLng);
+                window.pendingLat = undefined;
+                window.pendingLng = undefined;
+            }
+            
+            // Notify Java that the map is ready
+            if (window.javaConnector) {
+                window.javaConnector.mapReady();
+            }
+        });
+
+        // Function to be called from Java to set the marker position
+        function showLocation(lat, lng) {
+            // If map is not initialized yet, store coordinates for later use
+            if (!mapInitialized || !map) {
+                console.log("Map not initialized yet, storing coordinates for later use: " + lat + ", " + lng);
+                window.pendingLat = lat;
+                window.pendingLng = lng;
+                return;
+            }
+            
+            console.log("Setting map location to: " + lat + ", " + lng);
+            
+            // Center the map on the coordinates
+            map.setView([lat, lng], 15);
+            
+            // Clear existing markers
+            map.eachLayer(function(layer) {
+                if (layer instanceof L.Marker) {
+                    map.removeLayer(layer);
+                }
+            });
+            
+            // Add a marker
+            L.marker([lat, lng]).addTo(map)
+                .bindPopup("Lieu de l'atelier").openPopup();
+        }
+        
+        // Function to check if map is ready
+        function isMapReady() {
+            return mapInitialized;
+        }
+    </script>
+</body>
+</html>

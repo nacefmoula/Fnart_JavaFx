@@ -1,0 +1,190 @@
+.root {
+    -fx-background-color: #18122B;
+    -fx-padding: 32;
+    -fx-spacing: 16;
+    -fx-font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.title {
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #f3f3f3;
+    -fx-padding: 0 0 20 0;
+}
+
+.subtitle {
+    -fx-font-size: 15px;
+    -fx-text-fill: #b0aecd;
+}
+
+.section-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #f3f3f3;
+    -fx-padding: 10 0 5 0;
+}
+
+.text-field {
+    -fx-background-radius: 16;
+    -fx-background-color: #232046;
+    -fx-border-color: #39325c;
+    -fx-border-radius: 16;
+    -fx-pref-height: 44;
+    -fx-font-size: 15px;
+    -fx-padding: 0 16;
+    -fx-text-fill: #f3f3f3;
+}
+
+.button, .generate-button, .download-button {
+    -fx-background-radius: 24;
+    -fx-cursor: hand;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-padding: 12 0;
+    -fx-min-width: 180;
+    -fx-background-color: #a259ff;
+    -fx-text-fill: #fff;
+    -fx-effect: none;
+    -fx-border-width: 0;
+}
+
+.button:disabled, .generate-button:disabled {
+    -fx-background-color: #39325c;
+    -fx-text-fill: #b0aecd;
+}
+
+.button:hover, .generate-button:hover {
+    -fx-background-color: #7c3aed;
+}
+
+.radio-button, .check-box {
+    -fx-font-size: 15px;
+    -fx-text-fill: #f3f3f3;
+    -fx-background-color: transparent;
+}
+
+.radio-button:selected, .check-box:selected {
+    -fx-background-color: #a259ff;
+}
+
+.separator {
+    -fx-padding: 24 0;
+    -fx-border-color: #232046;
+    -fx-border-width: 1 0 0 0;
+}
+
+.image-style {
+    -fx-background-radius: 12;
+    -fx-effect: none;
+    -fx-border-color: #232046;
+    -fx-border-width: 2;
+    -fx-cursor: hand;
+}
+
+.image-style:hover, .selected-style {
+    -fx-border-color: #a259ff;
+    -fx-border-width: 3;
+    -fx-effect: dropshadow(three-pass-box, #a259ff44, 8, 0, 0, 0);
+}
+
+.label {
+    -fx-font-size: 15px;
+    -fx-text-fill: #f3f3f3;
+}
+
+.transparent-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #a259ff;
+    -fx-border-color: #a259ff;
+    -fx-border-width: 1;
+    -fx-border-radius: 16;
+    -fx-font-weight: bold;
+    -fx-padding: 8 24;
+}
+
+.transparent-button:hover {
+    -fx-background-color: #a259ff22;
+}
+
+.error-label {
+    -fx-text-fill: #ff4444;
+    -fx-font-size: 14px;
+    -fx-padding: 5 0;
+}
+
+.loading-indicator {
+    -fx-progress-color: #a259ff;
+    -fx-scale-x: 1.5;
+    -fx-scale-y: 1.5;
+}
+
+.result-image {
+    -fx-background-radius: 16;
+    -fx-effect: dropshadow(three-pass-box, #00000022, 10, 0, 0, 5);
+    -fx-border-color: #232046;
+    -fx-border-width: 1;
+    -fx-border-radius: 16;
+}
+.side-handle {
+    -fx-background-color: #b0b0b0;
+    -fx-background-radius: 8;
+    -fx-min-width: 16;
+    -fx-max-width: 16;
+    -fx-min-height: 80;
+    -fx-max-height: 80;
+    -fx-padding: 0;
+    -fx-border-width: 0;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(three-pass-box, #00000044, 4, 0, 0, 1);
+    -fx-translate-x: 0;
+}
+.side-handle:hover {
+    -fx-background-color: #a259ff;
+}
+
+
+
+/* Style de la barre de défilement */
+.custom-scroll-pane {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+    -fx-padding: 0;
+}
+
+.custom-scroll-pane > .viewport {
+    -fx-background-color: transparent;
+}
+
+/* Style de la barre de défilement verticale */
+.custom-scroll-pane .scroll-bar:vertical {
+    -fx-background-color: #18122B;
+    -fx-background-radius: 8;
+    -fx-padding: 0 0 0 2;
+}
+
+.custom-scroll-pane .scroll-bar:vertical .thumb {
+    -fx-background-color: #a259ff;
+    -fx-background-radius: 8;
+}
+
+.custom-scroll-pane .scroll-bar:vertical .thumb:hover {
+    -fx-background-color: #7c3aed;
+}
+
+.custom-scroll-pane .scroll-bar:vertical .track {
+    -fx-background-color: #232046;
+    -fx-background-radius: 8;
+}
+
+.custom-scroll-pane .scroll-bar:vertical .increment-button,
+.custom-scroll-pane .scroll-bar:vertical .decrement-button {
+    -fx-background-color: transparent;
+    -fx-padding: 0 5 0 0;
+}
+
+.custom-scroll-pane .scroll-bar:vertical .increment-arrow,
+.custom-scroll-pane .scroll-bar:vertical .decrement-arrow {
+    -fx-background-color: #a259ff;
+    -fx-shape: " ";
+    -fx-padding: 0;
+}

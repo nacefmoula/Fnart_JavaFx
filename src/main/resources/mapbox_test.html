@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapbox Test</title>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        #map {
+            width: 100%;
+            height: 500px; /* Changed height to a fixed value for better visibility */
+            border: 1px solid black; /* Added a border for debugging visibility */
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoibmFhY2VmMTQiLCJhIjoiY205eDN4cWFpMG83MDJrczc0a3d4d2k5OSJ9.3vkoN46G5OKLI22R66zqbQ';
+        const map = new mapboxgl.Map({
+            container: 'map', // ID of the container element
+            style: 'mapbox://styles/mapbox/streets-v11', // Map style
+            center: [0, 0], // Initial map center [longitude, latitude]
+            zoom: 2 // Initial zoom level
+        });
+
+        map.on('load', () => {
+            console.log('Map loaded successfully');
+        });
+        map.on('error', (e) => {
+            console.error('Map error:', e.error);
+        });
+        map.on('data', (e) => {
+            if (e.dataType === 'source' || e.dataType === 'tile') {
+                console.log('Network request:', e);
+            }
+        });
+
+        map.on('click', (e) => {
+            const coordinates = e.lngLat;
+            console.log('Selected location:', coordinates);
+
+            // Send the coordinates back to the JavaFX application
+            fetch('http://localhost:8080/location', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    longitude: coordinates.lng,
+                    latitude: coordinates.lat
+                })
+            }).then(response => {
+                if (response.ok) {
+                    console.log('Location sent successfully');
+                } else {
+                    console.error('Failed to send location');
+                }
+            }).catch(error => {
+                console.error('Error sending location:', error);
+            });
+        });
+    </script>
+</body>
+</html>
